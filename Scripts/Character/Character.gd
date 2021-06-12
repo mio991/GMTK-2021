@@ -2,10 +2,7 @@ extends KinematicBody2D
 
 export(float) var speed = 500
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
+onready var music_player:Node = self.get_node("AudioStreamPlayer");
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -22,3 +19,10 @@ func _physics_process(delta):
 	direction = direction.clamped(1)
 	
 	self.move_and_slide(direction * self.speed * delta)
+
+#func _input(event):
+#	if(event.is_action_released("interact")):
+#		self.get
+
+func start_charater_music():
+	pass
