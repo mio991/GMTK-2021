@@ -1,17 +1,18 @@
 extends Node
 
-onready var link_manager = self.get_node("/root/LinkManager")
-
-func _on_link_or_unlink(body_1:RigidBody2D, body_2:RigidBody2D):
-		# if link exist remove it and early return
-	for link in link_manager.movment_links:
-		if (link[0] == body_1 and link[1] == body_2) or (link[0] == body_2 and link[1] == body_1):
-			link_manager.movment_links.erase(link) 
-			return
-	
-	link_manager.movment_links.append([
-		body_1,
-		body_2
-	])
-	
-	print_debug(link_manager.movment_links)
+func _on_link_or_unlink(body_1, body_2):
+	print_debug(body_1, body_2)
+	for link in get_children():
+		if link is PinJoint2D and (
+			(link.node_a == body_1.get_path() and link.node_b == body_2.get_path()) or
+			(link.node_a == body_2.get_path() and link.node_b == body_1.get_path())
+			):
+				remove_child(link)
+				return
+	var link = PinJoint2D.new()
+	link.node_a = body_1.get_path()
+	link.node_b = body_2.get_path()
+	link.bias = 0.5
+	link.softness = 1
+	add_child(link)
+	pass

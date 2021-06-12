@@ -66,12 +66,10 @@ Character_2 = NodePath("Character2")
 
 [node name="Character1" parent="CharacterSwitcher" instance=ExtResource( 3 )]
 position = Vector2( 103.412, 452.417 )
-speed = 5000.0
 character_music = ExtResource( 9 )
 
 [node name="Character2" parent="CharacterSwitcher" instance=ExtResource( 3 )]
 position = Vector2( 138.69, 142.476 )
-speed = 5000.0
 character_music = ExtResource( 10 )
 
 [node name="RigidBody2D" parent="." instance=ExtResource( 7 )]

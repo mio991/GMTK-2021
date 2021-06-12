@@ -18,6 +18,7 @@ func try_link_or_unlink():
 	var body_2:Node = get_connectable_body(connector_2)
 	
 	if body_1 != null and body_2 != null:
+		print_debug(body_1, body_2)
 		self.emit_signal("link_or_unlink", body_1, body_2)
 
 func get_connectable_body(area:Area2D):
