@@ -1,8 +1,13 @@
 extends KinematicBody2D
 
 export(float) var speed = 500
+export(AudioStream) var character_music
 
-onready var music_player:Node = self.get_node("AudioStreamPlayer");
+onready var music_player:AudioStreamPlayer = self.get_node("AudioStreamPlayer")
+onready var animation_player:AnimationPlayer = self.get_node("AnimationPlayer")
+
+func _ready():
+	self.music_player.stream = self.character_music
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -20,9 +25,10 @@ func _physics_process(delta):
 	
 	self.move_and_slide(direction * self.speed * delta)
 
-#func _input(event):
-#	if(event.is_action_released("interact")):
-#		self.get
+func start_charater_music(position:float):
+	self.music_player.play(position)
+	self.animation_player.play("Fade_In")
 
-func start_charater_music():
-	pass
+func stop_charater_music():
+	self.animation_player.play("Fade_Out")
+	return self.music_player.get_playback_position()

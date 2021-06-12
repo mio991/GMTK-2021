@@ -21,11 +21,14 @@ func switch():
 	# Stop Inactive Character here
 	self.inactive.set_physics_process(false)
 	self.inactive.set_process(false)
+	var playback = self.inactive.stop_charater_music()
+	
 	
 	self.active = newActive
 	# Start active Character here
 	self.active.set_physics_process(true)
-	self.inactive.set_process(true)
+	self.active.set_process(true)
+	self.active.start_charater_music(playback)
 	self.gloabls.active_player = self.active
 
 func _input(event):
