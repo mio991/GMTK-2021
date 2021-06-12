@@ -12,9 +12,7 @@ func _ready():
 	self.inactive = self.get_node(self.Character_1)
 	self.switch()
 
-func switch():
-	print("Switch!")
-	
+func switch():	
 	var newActive = self.inactive
 	
 	self.inactive = self.active
