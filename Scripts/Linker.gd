@@ -1,5 +1,7 @@
 extends Node
 
+signal link(entities)
+
 func _ready():
 	for child in self.get_children():
 		if child.has_signal("interacted_with"):
@@ -14,4 +16,4 @@ func try_link():
 					bodies.append(body)
 	
 	if bodies.size() >= 2:
-		print_debug(bodies)
+		self.emit_signal("link", bodies)
