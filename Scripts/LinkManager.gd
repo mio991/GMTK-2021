@@ -7,8 +7,8 @@ func _ready():
 
 func _physics_process(delta):
 	for link in movment_links:
-		var body_1:RigidBody2D = link[0]
-		var body_2:RigidBody2D = link[1]
+		var body_1:KinematicBody2d = link[0]
+		var body_2:KinematicBody2d = link[1]
 		var vel = (body_1.linear_velocity + body_2.linear_velocity) / 2
 		body_1.apply_central_impulse(vel - body_1.linear_velocity)
 		body_2.apply_central_impulse(vel - body_2.linear_velocity)
