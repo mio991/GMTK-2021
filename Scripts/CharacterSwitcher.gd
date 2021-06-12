@@ -11,7 +11,7 @@ func _ready():
 	self.active = self.get_node(self.Character_2)
 	self.inactive = self.get_node(self.Character_1)
 	self.switch()
-
+	print(self.active.name)
 func switch():	
 	var newActive = self.inactive
 	
