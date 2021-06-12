@@ -1,5 +1,10 @@
 extends Node
 
+enum zone {HOT=10, COLD=-10}
+
+signal decreaseTemp (temp)
+signal increaseTemp (temp)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -8,11 +13,16 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func updateTemperature(ball,typeZone): 
-	if typeZone == "cold":
-		ball.temp += -15
-		pass
-	elif typeZone == "hot":
-		ball.temp += 15
-		pass
-	return ball
+func _on_RigidBody2D2_collide(typeObjectCollide, delta):
+	#top
+	if typeObjectCollide == "cold":
+		 emit_signal("decreaseTemp", zone.COLD*delta)
+	elif typeObjectCollide == "hot":
+		emit_signal("increaseTemp",zone.HOT*delta)
+
+func _on_RigidBody2D_collide(typeObjectCollide, delta):
+	#bottom
+	if typeObjectCollide == "cold":
+		 emit_signal("decreaseTemp", zone.COLD*delta)
+	elif typeObjectCollide == "hot":
+		emit_signal("increaseTemp",zone.HOT*delta)

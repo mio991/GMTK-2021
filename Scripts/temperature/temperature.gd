@@ -1,10 +1,11 @@
 extends RigidBody2D
 
-var ball = {
-	temp=30
-}
+var temperature = 30
+
 var lstBodyCollide = {}
 onready var temperatureManager = get_node("../Node")
+
+signal collide(typeObjectCollide, delta)
 
 func _ready():
 	contact_monitor = 2
@@ -13,8 +14,15 @@ func _ready():
 
 func _physics_process(delta):
 	lstBodyCollide = get_colliding_bodies()
-	
+
 	if lstBodyCollide.size() >= 2 :
 		if lstBodyCollide[1]: #collision
-			ball = temperatureManager.updateTemperature(ball, "hot")
-			print(ball.temp)
+			emit_signal("collide", "hot", delta)
+			pass
+	print(temperature)
+	
+func _on_Node_decreaseTemp(temp):
+	temperature+=temp
+
+func _on_Node_increaseTemp(temp):
+	temperature+=temp
