@@ -3,7 +3,7 @@
 [ext_resource path="res://Scripts/Level/Level.gd" type="Script" id=1]
 [ext_resource path="res://Assets/TileSet.tres" type="TileSet" id=2]
 [ext_resource path="res://Scripts/Links/MovmentLinker.gd" type="Script" id=3]
-[ext_resource path="res://Prefabs/Hole.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Prefabs/Walls.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Prefabs/Links/LinkerStation.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Prefabs/Items/Rock_Yellow.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Prefabs/Links/Linker.tscn" type="PackedScene" id=7]
@@ -17,65 +17,74 @@ rough = true
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
-Spawn_1 = NodePath("Spawn1")
-Spawn_2 = NodePath("Spawn2")
+Spawn_1 = NodePath("World1/Spawn1")
+Spawn_2 = NodePath("World2/Spawn2")
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="World1" parent="." instance=ExtResource( 4 )]
+position = Vector2( 320, 152 )
+
+[node name="TileMap" type="TileMap" parent="World1"]
+position = Vector2( -95.9995, 144 )
+rotation = -1.5708
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 32, 32 )
-collision_layer = 9
+collision_layer = 8
+collision_mask = 8
 format = 1
-tile_data = PoolIntArray( 0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 6, 1, 0, 7, 1, 0, 8, 1, 0, 9, 1, 0, 10, 1, 0, 11, 1, 0, 12, 1, 0, 13, 1, 0, 14, 1, 0, 15, 1, 0, 65536, 1, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 65550, 0, 0, 65551, 1, 0, 131072, 1, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 131086, 0, 0, 131087, 1, 0, 196608, 1, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 0, 0, 196621, 0, 0, 196622, 0, 0, 196623, 1, 0, 262144, 1, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 262159, 1, 0, 327680, 1, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0, 327694, 0, 0, 327695, 1, 0, 393216, 1, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 1, 0, 458752, 1, 0, 458753, 1, 0, 458754, 1, 0, 458755, 1, 0, 458756, 1, 0, 458757, 1, 0, 458758, 1, 0, 458759, 1, 0, 458760, 1, 0, 458761, 1, 0, 458762, 1, 0, 458763, 1, 0, 458764, 1, 0, 458765, 1, 0, 458766, 1, 0, 458767, 1, 0, 524288, 1, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 589824, 1, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0, 589838, 0, 0, 589839, 1, 0, 655360, 1, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 655375, 1, 0, 720896, 1, 0, 720897, 0, 0, 720898, 0, 0, 720899, 0, 0, 720900, 0, 0, 720901, 0, 0, 720902, 0, 0, 720903, 0, 0, 720904, 0, 0, 720905, 0, 0, 720906, 0, 0, 720907, 0, 0, 720908, 0, 0, 720909, 0, 0, 720910, 0, 0, 720911, 1, 0, 786432, 1, 0, 786433, 0, 0, 786434, 0, 0, 786435, 0, 0, 786436, 0, 0, 786437, 0, 0, 786438, 0, 0, 786439, 0, 0, 786440, 0, 0, 786441, 0, 0, 786442, 0, 0, 786443, 0, 0, 786444, 0, 0, 786445, 0, 0, 786446, 0, 0, 786447, 1, 0, 851968, 1, 0, 851969, 0, 0, 851970, 0, 0, 851971, 0, 0, 851972, 0, 0, 851973, 0, 0, 851974, 0, 0, 851975, 0, 0, 851976, 0, 0, 851977, 0, 0, 851978, 0, 0, 851979, 0, 0, 851980, 0, 0, 851981, 0, 0, 851982, 0, 0, 851983, 1, 0, 917504, 1, 0, 917505, 0, 0, 917506, 0, 0, 917507, 0, 0, 917508, 0, 0, 917509, 0, 0, 917510, 0, 0, 917511, 0, 0, 917512, 0, 0, 917513, 0, 0, 917514, 0, 0, 917515, 0, 0, 917516, 0, 0, 917517, 0, 0, 917518, 0, 0, 917519, 1, 0, 983040, 1, 0, 983041, 1, 0, 983042, 1, 0, 983043, 1, 0, 983044, 1, 0, 983045, 1, 0, 983046, 1, 0, 983047, 1, 0, 983048, 1, 0, 983049, 1, 0, 983050, 1, 0, 983051, 1, 0, 983052, 1, 0, 983053, 1, 0, 983054, 1, 0, 983055, 1, 0 )
+tile_data = PoolIntArray( 0, 2, 196608, 1, 2, 0, 2, 2, 131073, 3, 2, 131073, 4, 2, 1, 5, 2, 0, 6, 2, 131073, 7, 2, 65537, 8, 2, 131073, 65536, 2, 0, 65537, 2, 131072, 65538, 2, 131072, 65539, 2, 0, 65540, 2, 0, 65541, 2, 65537, 65542, 2, 0, 65543, 2, 196608, 65544, 2, 0, 131072, 2, 131072, 131073, 2, 196608, 131074, 2, 196608, 131075, 2, 65536, 131076, 17, 0, 131077, 17, 1, 131078, 2, 131072, 131079, 2, 131073, 131080, 2, 0, 196608, 2, 131073, 196609, 2, 196608, 196610, 2, 1, 196611, 2, 131073, 196612, 17, 65536, 196613, 17, 65537, 196614, 2, 196609, 196615, 2, 0, 196616, 2, 1, 262144, 2, 0, 262145, 2, 0, 262146, 2, 131072, 262147, 2, 65537, 262148, 2, 0, 262149, 2, 131072, 262150, 2, 131072, 262151, 2, 131073, 262152, 2, 1, 327680, 2, 65536, 327681, 2, 65536, 327682, 2, 196609, 327683, 2, 0, 327684, 2, 131073, 327685, 2, 131072, 327686, 2, 0, 327687, 2, 131072, 327688, 2, 131072 )
 
-[node name="Sprite" parent="TileMap" instance=ExtResource( 4 )]
-position = Vector2( 272, 304 )
+[node name="Connector1" parent="World1" instance=ExtResource( 5 )]
+position = Vector2( -79.9995, 128 )
+rotation = -1.5708
 
-[node name="Sprite2" parent="TileMap" instance=ExtResource( 4 )]
-position = Vector2( 272, 336 )
+[node name="Rock" parent="World1" instance=ExtResource( 6 )]
+position = Vector2( -79.9997, 88.0003 )
+rotation = -1.5708
+physics_material_override = SubResource( 3 )
 
-[node name="Sprite3" parent="TileMap" instance=ExtResource( 4 )]
-position = Vector2( 272, 368 )
+[node name="Spawn1" type="Node2D" parent="World1"]
+position = Vector2( -23.9998, 64.0001 )
+rotation = -1.5708
 
-[node name="Sprite4" parent="TileMap" instance=ExtResource( 4 )]
-position = Vector2( 272, 400 )
+[node name="Exit" parent="World1" instance=ExtResource( 10 )]
+position = Vector2( -16.0004, -120 )
+rotation = -1.5708
 
-[node name="Sprite5" parent="TileMap" instance=ExtResource( 4 )]
-position = Vector2( 272, 432 )
+[node name="World2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 320, 448 )
 
-[node name="Sprite6" parent="TileMap" instance=ExtResource( 4 )]
-position = Vector2( 272, 464 )
+[node name="TileMap" type="TileMap" parent="World2"]
+position = Vector2( -95.9995, 144 )
+rotation = -1.5708
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 32, 32 )
+collision_layer = 8
+collision_mask = 8
+format = 1
+tile_data = PoolIntArray( 0, 2, 196608, 1, 2, 0, 2, 2, 131073, 3, 2, 65536, 4, 21, 0, 5, 21, 1, 6, 2, 65537, 7, 20, 0, 8, 20, 1, 65536, 2, 0, 65537, 2, 131072, 65538, 2, 131072, 65539, 2, 131073, 65540, 21, 0, 65541, 21, 0, 65542, 2, 65537, 65543, 20, 65536, 65544, 20, 65537, 131072, 2, 131072, 131073, 2, 196608, 131074, 2, 196608, 131075, 2, 131073, 131076, 21, 0, 131077, 21, 0, 131078, 19, 0, 131079, 19, 1, 131080, 2, 196609, 196608, 2, 131073, 196609, 2, 196608, 196610, 2, 1, 196611, 2, 131073, 196612, 21, 0, 196613, 21, 0, 196614, 19, 65536, 196615, 19, 65537, 196616, 2, 65537, 262144, 2, 0, 262145, 2, 0, 262146, 2, 131072, 262147, 2, 131073, 262148, 21, 0, 262149, 21, 0, 262150, 2, 0, 262151, 2, 0, 262152, 2, 196608, 327680, 2, 65536, 327681, 2, 65536, 327682, 2, 196609, 327683, 2, 0, 327684, 21, 65536, 327685, 21, 65537, 327686, 2, 196609, 327687, 2, 131072, 327688, 2, 131072 )
+
+[node name="Connector2" parent="World2" instance=ExtResource( 5 )]
+position = Vector2( -79.9995, 128 )
+rotation = -1.5708
+
+[node name="Rock2" parent="World2" instance=ExtResource( 9 )]
+position = Vector2( -79.9997, 96.0003 )
+rotation = -1.5708
+
+[node name="Spawn2" type="Node2D" parent="World2"]
+position = Vector2( 24.0003, 79.9999 )
+rotation = -1.5708
+
+[node name="PreassurePlate" parent="World2" instance=ExtResource( 8 )]
+position = Vector2( 79.9995, -128 )
+rotation = -1.5708
 
 [node name="Linker" parent="." instance=ExtResource( 7 )]
-Connector1 = NodePath("Connector1")
-Connector2 = NodePath("Connector2")
+Connector1 = NodePath("../World1/Connector1")
+Connector2 = NodePath("../World2/Connector2")
 
 [node name="MovmentLinker" type="Node" parent="Linker"]
 script = ExtResource( 3 )
 
-[node name="Connector1" parent="Linker" instance=ExtResource( 5 )]
-position = Vector2( 48, 48 )
-
-[node name="Connector2" parent="Linker" instance=ExtResource( 5 )]
-position = Vector2( 48, 304 )
-
-[node name="PreassurePlate" parent="." instance=ExtResource( 8 )]
-position = Vector2( 464, 464 )
-
-[node name="Rock2" parent="." instance=ExtResource( 9 )]
-position = Vector2( 112, 304 )
-
-[node name="Rock" parent="." instance=ExtResource( 6 )]
-position = Vector2( 112, 48 )
-physics_material_override = SubResource( 3 )
-
-[node name="Spawn1" type="Node2D" parent="."]
-position = Vector2( 88, 368 )
-
-[node name="Spawn2" type="Node2D" parent="."]
-position = Vector2( 120, 176 )
-
-[node name="Exit" parent="." instance=ExtResource( 10 )]
-position = Vector2( 456, 128 )
-
+[connection signal="change_state" from="World2/PreassurePlate" to="World1/Exit" method="state_changed"]
 [connection signal="link_or_unlink" from="Linker" to="Linker/MovmentLinker" method="_on_link_or_unlink"]
-[connection signal="change_state" from="PreassurePlate" to="Exit" method="state_changed"]
