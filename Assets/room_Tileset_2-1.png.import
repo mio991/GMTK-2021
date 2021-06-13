@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/altars.png-190dd641952878137d759ec6dcebc3c4.stex"
+path="res://.import/room_Tileset_2-1.png-1cb551272e6a8b587e79fa95dd9b2d31.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/altars.png"
-dest_files=[ "res://.import/altars.png-190dd641952878137d759ec6dcebc3c4.stex" ]
+source_file="res://Assets/room_Tileset_2-1.png"
+dest_files=[ "res://.import/room_Tileset_2-1.png-1cb551272e6a8b587e79fa95dd9b2d31.stex" ]
 
 [params]
 

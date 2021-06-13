@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "LevelContainer",
 "language": "GDScript",
 "path": "res://Scripts/Level/LevelContainer.gd"
+}, {
+"base": "RigidBody2D",
+"class": "SystemsObject",
+"language": "GDScript",
+"path": "res://Scripts/Temperature/SystemsObject.gd"
 } ]
 _global_script_class_icons={
 "Level": "",
-"LevelContainer": ""
+"LevelContainer": "",
+"SystemsObject": ""
 }
 
 [application]
@@ -32,6 +38,7 @@ run/main_scene="res://Main.tscn"
 [autoload]
 
 Globals="*res://Scripts/Globals.gd"
+SystemManager="*res://Scripts/Temperature/SystemManager.gd"
 
 [display]
 
@@ -118,6 +125,7 @@ reload={
 2d_physics/layer_4="Player"
 2d_physics/layer_5="Caryable"
 2d_physics/layer_6="Heavy"
+2d_physics/layer_7="Systems"
 
 [physics]
 
