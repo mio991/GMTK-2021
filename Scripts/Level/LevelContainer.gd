@@ -7,7 +7,7 @@ const Levels = [
 	preload("res://Levels/01.tscn"),
 	preload("res://Levels/02.tscn"),
 	preload("res://Levels/03.tscn"),
-	preload("res://Levels/03.tscn")
+	preload("res://Levels/Final.tscn")
 ]
 
 var currentLevel = -1
