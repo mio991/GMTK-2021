@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/5.8_door_meh.mp3-ba727c556dceb4ab1355e3e9ac70f4b2.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/sounds/5.8_door_meh.mp3"
+dest_files=[ "res://.import/5.8_door_meh.mp3-ba727c556dceb4ab1355e3e9ac70f4b2.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

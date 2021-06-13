@@ -60,8 +60,8 @@ func _process(_delta):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):	
 	if is_moving:
-		#self.move_and_slide(self.get_direction_vector() * self.max_speed * delta, Vector2(0,0), false, 4, 0.785398, false)
-		self.move_and_slide(self.get_direction_vector() * self.max_speed * delta)
+		self.move_and_slide(self.get_direction_vector() * self.max_speed * delta, Vector2(0,0), false, 4, 0.785398, false)
+		#self.move_and_slide(self.get_direction_vector() * self.max_speed * delta)
 
 func start_charater_music(position:float):
 	self.music_player.play(position)

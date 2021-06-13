@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/3.3_moving_good.mp3-90d5b45bac9c426cd2af443242c99e9e.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/sounds/3.3_moving_good.mp3"
+dest_files=[ "res://.import/3.3_moving_good.mp3-90d5b45bac9c426cd2af443242c99e9e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

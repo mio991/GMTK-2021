@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/7.4_menu_meh.mp3-fd942a9cd5ef42e7e2451f121f23a10f.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/sounds/7.4_menu_meh.mp3"
+dest_files=[ "res://.import/7.4_menu_meh.mp3-fd942a9cd5ef42e7e2451f121f23a10f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

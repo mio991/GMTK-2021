@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/6.0 glitch.mp3-a43c4b27371fbae1903efc88f06c42a9.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/sounds/6.0 glitch.mp3"
+dest_files=[ "res://.import/6.0 glitch.mp3-a43c4b27371fbae1903efc88f06c42a9.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

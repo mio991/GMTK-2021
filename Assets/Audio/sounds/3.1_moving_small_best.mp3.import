@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/3.1_moving_small_best.mp3-ea5b6832b4f0f6c990ed19079bf74fb0.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/sounds/3.1_moving_small_best.mp3"
+dest_files=[ "res://.import/3.1_moving_small_best.mp3-ea5b6832b4f0f6c990ed19079bf74fb0.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

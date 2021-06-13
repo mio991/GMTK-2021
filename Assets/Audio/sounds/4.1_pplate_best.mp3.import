@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/4.1_pplate_best.mp3-69d0c81509e244e6293293b4db1937b0.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/sounds/4.1_pplate_best.mp3"
+dest_files=[ "res://.import/4.1_pplate_best.mp3-69d0c81509e244e6293293b4db1937b0.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

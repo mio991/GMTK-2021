@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/0.1_walking_sand_good.mp3-97fa087e526b5bfb2bd6eb84a8261a58.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/sounds/0.1_walking_sand_good.mp3"
+dest_files=[ "res://.import/0.1_walking_sand_good.mp3-97fa087e526b5bfb2bd6eb84a8261a58.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

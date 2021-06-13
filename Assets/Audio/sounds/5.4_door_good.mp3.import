@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/5.4_door_good.mp3-77ce5c84325772c5fd3795d69a384a7c.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/sounds/5.4_door_good.mp3"
+dest_files=[ "res://.import/5.4_door_good.mp3-77ce5c84325772c5fd3795d69a384a7c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

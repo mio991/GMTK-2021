@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/7.1_menu_button.mp3-b3fbb3ed1ca7affd41808b329c23159c.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/sounds/7.1_menu_button.mp3"
+dest_files=[ "res://.import/7.1_menu_button.mp3-b3fbb3ed1ca7affd41808b329c23159c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

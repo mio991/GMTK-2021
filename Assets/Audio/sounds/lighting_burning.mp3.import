@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/lighting_burning.mp3-e6400e00219ab41ef034508de8720702.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/sounds/lighting_burning.mp3"
+dest_files=[ "res://.import/lighting_burning.mp3-e6400e00219ab41ef034508de8720702.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

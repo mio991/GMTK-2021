@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/0.3_walking_meh.mp3-25804ac9be5d8dd74e302775a8c2f4fb.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/sounds/0.3_walking_meh.mp3"
+dest_files=[ "res://.import/0.3_walking_meh.mp3-25804ac9be5d8dd74e302775a8c2f4fb.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

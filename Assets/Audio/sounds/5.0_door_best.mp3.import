@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/5.0_door_best.mp3-f34074876e4b7b4c097c34ede7f4bc38.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/sounds/5.0_door_best.mp3"
+dest_files=[ "res://.import/5.0_door_best.mp3-f34074876e4b7b4c097c34ede7f4bc38.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

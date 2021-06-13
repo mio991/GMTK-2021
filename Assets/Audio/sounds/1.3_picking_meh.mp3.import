@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/1.3_picking_meh.mp3-705ac2e597c6847aa5e25d7b67cea27b.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/sounds/1.3_picking_meh.mp3"
+dest_files=[ "res://.import/1.3_picking_meh.mp3-705ac2e597c6847aa5e25d7b67cea27b.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

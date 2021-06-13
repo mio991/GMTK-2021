@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/3.5_moving_meh.mp3-04fa72e5b7f19a959c755dea354d7815.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/sounds/3.5_moving_meh.mp3"
+dest_files=[ "res://.import/3.5_moving_meh.mp3-04fa72e5b7f19a959c755dea354d7815.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

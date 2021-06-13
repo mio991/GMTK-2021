@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/0.0_walking_jungle_good.mp3-d22d5d371c91a2cf39168e08b67c1a71.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/sounds/0.0_walking_jungle_good.mp3"
+dest_files=[ "res://.import/0.0_walking_jungle_good.mp3-d22d5d371c91a2cf39168e08b67c1a71.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
