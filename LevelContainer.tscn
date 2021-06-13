@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/LevelContainer.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Audio/WORLD 1 in 150BPM.wav" type="AudioStream" id=2]
+[ext_resource path="res://Assets/Audio/WORLD 2 in 150bpm.wav" type="AudioStream" id=3]
+[ext_resource path="res://Prefabs/Character/Character.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Prefabs/Character/CharacterSwitcher.tscn" type="PackedScene" id=5]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="CharacterSwitcher" parent="." instance=ExtResource( 5 )]
+Character_1 = NodePath("Character1")
+Character_2 = NodePath("Character2")
+
+[node name="Character1" parent="CharacterSwitcher" instance=ExtResource( 4 )]
+type = "blue"
+character_music = ExtResource( 2 )
+
+[node name="Character2" parent="CharacterSwitcher" instance=ExtResource( 4 )]
+character_music = ExtResource( 3 )

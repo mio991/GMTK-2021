@@ -1,5 +1,8 @@
 extends KinematicBody2D
 
+export(String, "red", "blue") var type = "red"
+	
+
 enum ViewDirection {
 	Unknow = 0,
 	Right = 1,
@@ -36,6 +39,7 @@ var is_moving = false
 
 func _ready():
 	self.music_player.stream = self.character_music
+	$CharacterSprite.animation = type
 
 func _process(_delta):	
 	var view_direction = ViewDirection.Unknow
@@ -56,6 +60,7 @@ func _process(_delta):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):	
 	if is_moving:
+		#self.move_and_slide(self.get_direction_vector() * self.max_speed * delta, Vector2(0,0), false, 4, 0.785398, false)
 		self.move_and_slide(self.get_direction_vector() * self.max_speed * delta)
 
 func start_charater_music(position:float):

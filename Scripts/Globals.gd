@@ -1,3 +1,3 @@
 extends Node
 
-var active_player:Node
+var active_player:Node = null
