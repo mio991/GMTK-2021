@@ -1,23 +1,185 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://Scripts/Level/Level.gd" type="Script" id=1]
 [ext_resource path="res://Assets/TileSet.tres" type="TileSet" id=2]
 [ext_resource path="res://Scripts/Links/MovmentLinker.gd" type="Script" id=3]
 [ext_resource path="res://Prefabs/WallsRed.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Prefabs/Links/LinkerStation.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Sheets/rooms.png" type="Texture" id=6]
 [ext_resource path="res://Prefabs/Links/Linker.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Prefabs/Items/Preassure_Plate_Blue.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Prefabs/Items/Rock_Green.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Prefabs/Exit.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Prefabs/WallsBlue.tscn" type="PackedScene" id=11]
 
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 1640, 10, 120, 20 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 617, 69, 52, 27 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 1001, 0, 52, 75 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 1315, 0, 32, 12 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 1224, 76, 24, 9 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 1322, 71, 20, 19 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 1283, 85, 22, 11 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 1238, 24, 6, 4 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 1253, 13, 61, 19 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 840, 42, 53, 14 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 835, 96, 64, 56 )
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 707, 64, 63, 57 )
+
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 910, 80, 80, 60 )
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 780, 40, 50, 50 )
+
+[sub_resource type="AtlasTexture" id=15]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 520, 70, 80, 70 )
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 617, 37, 52, 27 )
+
+[sub_resource type="AtlasTexture" id=17]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 998, 96, 58, 47 )
+
+[sub_resource type="AtlasTexture" id=18]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 1123, 32, 64, 32 )
+
+[sub_resource type="AtlasTexture" id=19]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 1223, 39, 20, 25 )
+
+[sub_resource type="AtlasTexture" id=20]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 1224, 109, 24, 9 )
+
+[sub_resource type="AtlasTexture" id=21]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 1189, 5, 28, 54 )
+
+[sub_resource type="AtlasTexture" id=22]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 1220, 100, 60, 30 )
+
+[sub_resource type="AtlasTexture" id=23]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 1223, 39, 20, 25 )
+
+[sub_resource type="AtlasTexture" id=24]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 1808, 206, 38, 39 )
+
+[sub_resource type="AtlasTexture" id=25]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 1544, 166, 23, 23 )
+
+[sub_resource type="AtlasTexture" id=26]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 1737, 165, 23, 23 )
+
+[sub_resource type="AtlasTexture" id=27]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 1485, 38, 23, 24 )
+
+[sub_resource type="AtlasTexture" id=28]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 1705, 70, 23, 23 )
+
+[sub_resource type="AtlasTexture" id=29]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 1672, 72, 23, 14 )
+
+[sub_resource type="AtlasTexture" id=30]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 1549, 138, 13, 13 )
+
+[sub_resource type="AtlasTexture" id=31]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 1513, 102, 23, 23 )
+
+[sub_resource type="AtlasTexture" id=32]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 520, 0, 80, 60 )
+
 [node name="Node2D" type="Node2D"]
+position = Vector2( 21.2132, -40.3051 )
 script = ExtResource( 1 )
 Spawn_1 = NodePath("World2/Spawn")
 Spawn_2 = NodePath("World1/Spawn")
 
 [node name="World1" type="Node2D" parent="."]
-position = Vector2( 320, 144 )
+position = Vector2( 282.787, 192.305 )
 
 [node name="TileMap" type="TileMap" parent="World1"]
 position = Vector2( -144, -96 )
@@ -26,7 +188,7 @@ cell_size = Vector2( 32, 32 )
 collision_layer = 8
 collision_mask = 8
 format = 1
-tile_data = PoolIntArray( 0, 2, 65537, 1, 2, 0, 2, 2, 2, 3, 2, 2, 4, 2, 0, 5, 2, 0, 6, 2, 65539, 7, 2, 65539, 8, 2, 0, 65536, 2, 65536, 65537, 2, 0, 65538, 2, 65537, 65539, 2, 65536, 65540, 2, 0, 65541, 2, 65537, 65542, 2, 65539, 65543, 2, 65539, 65544, 2, 65537, 131072, 2, 0, 131073, 2, 0, 131074, 2, 65539, 131075, 2, 65537, 131076, 2, 3, 131077, 2, 0, 131078, 2, 65539, 131079, 2, 3, 131080, 2, 0, 196608, 2, 0, 196609, 2, 65538, 196610, 2, 3, 196611, 2, 0, 196612, 2, 65538, 196613, 2, 3, 196614, 2, 65538, 196615, 2, 65538, 196616, 2, 1, 262144, 2, 0, 262145, 2, 65537, 262146, 2, 65536, 262147, 2, 0, 262148, 2, 65539, 262149, 2, 1, 262150, 2, 65537, 262151, 2, 0, 262152, 2, 0, 327680, 2, 65538, 327681, 2, 0, 327682, 2, 0, 327683, 2, 65539, 327684, 2, 2, 327685, 2, 65537, 327686, 2, 1, 327687, 2, 65539, 327688, 2, 0 )
+tile_data = PoolIntArray( 0, 18, 0, 1, 2, 65536, 2, 2, 0, 3, 18, 0, 4, 18, 0, 5, 2, 0, 6, 18, 0, 7, 2, 65538, 8, 16, 0, 65536, 12, 1, 65537, 18, 0, 65538, 2, 0, 65539, 2, 65538, 65540, 2, 3, 65541, 2, 0, 65542, 2, 0, 65543, 18, 0, 65544, 12, 65536, 131072, 17, 0, 131073, 17, 1, 131074, 18, 0, 131075, 2, 0, 131076, 2, 1, 131077, 2, 2, 131078, 2, 65537, 131079, 20, 0, 131080, 20, 1, 196608, 17, 65536, 196609, 17, 65537, 196610, 18, 0, 196611, 2, 0, 196612, 2, 2, 196613, 18, 0, 196614, 2, 0, 196615, 20, 65536, 196616, 20, 65537, 262144, 2, 65536, 262145, 2, 0, 262146, 2, 65539, 262147, 2, 3, 262148, 2, 2, 262149, 18, 0, 262150, 2, 65538, 262151, 18, 0, 262152, 18, 1, 327680, 15, 0, 327681, 18, 65536, 327682, 18, 0, 327683, 18, 0, 327684, 18, 0, 327685, 2, 0, 327686, 12, 65536, 327687, 18, 0, 327688, 18, 65537 )
 
 [node name="Walls" parent="World1" instance=ExtResource( 4 )]
 position = Vector2( 0, 0 )
@@ -35,14 +197,103 @@ position = Vector2( 0, 0 )
 position = Vector2( -128, -79.9999 )
 
 [node name="Spawn" type="Node2D" parent="World1"]
-position = Vector2( -104, -56 )
+position = Vector2( -72.0002, -55.9999 )
 
 [node name="Exit" parent="World1" instance=ExtResource( 10 )]
 position = Vector2( 144, 0 )
 rotation = 1.5708
 
+[node name="Sprite" type="Sprite" parent="World1"]
+position = Vector2( -21.7254, -110.875 )
+texture = SubResource( 1 )
+
+[node name="Sprite2" type="Sprite" parent="World1"]
+position = Vector2( -158.071, 2.24741 )
+rotation = -1.57105
+texture = SubResource( 2 )
+
+[node name="Sprite3" type="Sprite" parent="World1"]
+position = Vector2( 71.9187, -86.1526 )
+texture = SubResource( 3 )
+
+[node name="Sprite4" type="Sprite" parent="World1"]
+position = Vector2( -70.4205, 115.37 )
+texture = SubResource( 4 )
+
+[node name="Sprite5" type="Sprite" parent="World1"]
+position = Vector2( 159.57, -53.5646 )
+texture = SubResource( 5 )
+
+[node name="Sprite6" type="Sprite" parent="World1"]
+position = Vector2( -159.57, 52.4408 )
+texture = SubResource( 6 )
+
+[node name="Sprite8" type="Sprite" parent="World1"]
+position = Vector2( 158.82, 49.4442 )
+texture = SubResource( 7 )
+
+[node name="Sprite9" type="Sprite" parent="World1"]
+position = Vector2( -121.67, -111.668 )
+texture = SubResource( 8 )
+
+[node name="Sprite15" type="Sprite" parent="World1"]
+position = Vector2( -121.67, -111.668 )
+texture = SubResource( 9 )
+
+[node name="Sprite10" type="Sprite" parent="World1"]
+position = Vector2( -25.0073, -85.8317 )
+rotation = 3.06648
+scale = Vector2( 1.04176, 0.968182 )
+texture = SubResource( 10 )
+
+[node name="Sprite11" type="Sprite" parent="World1"]
+position = Vector2( 114.864, 62.0575 )
+rotation = 1.56141
+scale = Vector2( 1.04176, 0.968182 )
+texture = SubResource( 11 )
+
+[node name="Sprite12" type="Sprite" parent="World1"]
+position = Vector2( -64.2068, 75.4209 )
+rotation = 3.13116
+scale = Vector2( 1.04176, 0.968182 )
+texture = SubResource( 12 )
+
+[node name="Sprite13" type="Sprite" parent="World1"]
+position = Vector2( -64.2068, 75.4209 )
+rotation = 3.13116
+scale = Vector2( 1.04176, 0.968182 )
+texture = SubResource( 13 )
+
+[node name="Sprite14" type="Sprite" parent="World1"]
+position = Vector2( -79.3089, -58.1373 )
+rotation = 3.13116
+scale = Vector2( 1.04176, 0.968182 )
+texture = SubResource( 13 )
+
+[node name="Sprite16" type="Sprite" parent="World1"]
+position = Vector2( 106.162, -74.1832 )
+rotation = 3.13116
+scale = Vector2( 1.04176, 0.968182 )
+texture = SubResource( 13 )
+
+[node name="Sprite17" type="Sprite" parent="World1"]
+position = Vector2( 119.849, 4.15837 )
+rotation = 4.71094
+scale = Vector2( 1.04176, 0.968182 )
+texture = SubResource( 13 )
+
+[node name="Sprite18" type="Sprite" parent="World1"]
+position = Vector2( 15.5504, 6.98999 )
+rotation = 4.71094
+scale = Vector2( 1.04176, 0.968182 )
+texture = SubResource( 14 )
+
+[node name="Sprite7" type="Sprite" parent="World1"]
+position = Vector2( -64.0002, -55.9999 )
+texture = SubResource( 15 )
+
 [node name="World2" type="Node2D" parent="."]
-position = Vector2( 320, 392 )
+position = Vector2( 282.787, 440.305 )
 
 [node name="TileMap" type="TileMap" parent="World2"]
 position = Vector2( -144, -40 )
@@ -51,10 +302,10 @@ cell_size = Vector2( 32, 32 )
 collision_layer = 8
 collision_mask = 8
 format = 1
-tile_data = PoolIntArray( 0, 2, 65539, 1, 2, 65539, 2, 2, 0, 3, 2, 65538, 4, 2, 65539, 5, 2, 0, 6, 2, 3, 7, 2, 1, 8, 2, 65536, 65536, 2, 1, 65537, 2, 65537, 65538, 2, 65537, 65539, 2, 0, 65540, 2, 2, 65541, 2, 65536, 65542, 2, 2, 65543, 2, 1, 65544, 2, 1, 131072, 2, 1, 131073, 2, 65539, 131074, 2, 65539, 131075, 2, 65539, 131076, 2, 0, 131077, 2, 0, 131078, 2, 65539, 131079, 2, 65536, 131080, 2, 0, 196608, 2, 0, 196609, 2, 65536, 196610, 2, 2, 196611, 2, 0, 196612, 2, 65536, 196613, 2, 3, 196614, 2, 0, 196615, 2, 0, 196616, 2, 2, 262144, 2, 0, 262145, 2, 0, 262146, 2, 1, 262147, 2, 0, 262148, 2, 65536, 262149, 2, 0, 262150, 2, 0, 262151, 2, 1, 262152, 2, 65537, 327680, 2, 2, 327681, 2, 3, 327682, 2, 0, 327683, 2, 65536, 327684, 2, 2, 327685, 2, 0, 327686, 2, 65538, 327687, 2, 65538, 327688, 2, 65538 )
+tile_data = PoolIntArray( 0, 2, 65539, 1, 2, 65539, 2, 2, 0, 3, 8, 65537, 4, 2, 65539, 5, 8, 1, 6, 2, 3, 7, 2, 1, 8, 2, 65536, 65536, 2, 1, 65537, 2, 65537, 65538, 2, 2, 65539, 2, 65539, 65540, 2, 65537, 65541, 2, 65536, 65542, 8, 0, 65543, 2, 1, 65544, 8, 65537, 131072, 17, 0, 131073, 17, 1, 131074, 8, 65536, 131075, 2, 0, 131076, 2, 0, 131077, 2, 0, 131078, 8, 65536, 131079, 19, 0, 131080, 19, 1, 196608, 17, 65536, 196609, 17, 65537, 196610, 2, 2, 196611, 8, 65537, 196612, 2, 65537, 196613, 2, 3, 196614, 2, 3, 196615, 19, 65536, 196616, 19, 65537, 327679, 8, 65537, 262144, 8, 0, 262145, 2, 2, 262146, 2, 65538, 262147, 2, 2, 262148, 2, 0, 262149, 18, 0, 262150, 2, 65536, 262151, 2, 1, 262152, 2, 65537, 327680, 2, 2, 327681, 2, 3, 327682, 2, 0, 327683, 2, 65536, 327684, 13, 0, 327685, 2, 65539, 327686, 13, 0, 327687, 8, 65536, 327688, 2, 65538, 393220, 13, 0 )
 
 [node name="Walls" parent="World2" instance=ExtResource( 11 )]
-position = Vector2( 0, 56 )
+position = Vector2( 0.5, 55.7028 )
 
 [node name="Connector2" parent="World2" instance=ExtResource( 5 )]
 position = Vector2( -128, -24 )
@@ -63,7 +314,7 @@ position = Vector2( -128, -24 )
 position = Vector2( -96, 136 )
 
 [node name="Spawn" type="Node2D" parent="World2"]
-position = Vector2( -104, 0 )
+position = Vector2( 15.9998, 8.00012 )
 
 [node name="PreassurePlate" parent="World2" instance=ExtResource( 8 )]
 position = Vector2( -128, 136 )
@@ -73,6 +324,103 @@ position = Vector2( 144, 48 )
 rotation = 1.5708
 type = "blue"
 
+[node name="Sprite" type="Sprite" parent="World2"]
+position = Vector2( -18.2254, -53.3748 )
+texture = SubResource( 1 )
+
+[node name="Sprite2" type="Sprite" parent="World2"]
+position = Vector2( -157.213, 64.3051 )
+rotation = -1.57105
+texture = SubResource( 16 )
+
+[node name="Sprite3" type="Sprite" parent="World2"]
+position = Vector2( 54.4187, -44.1526 )
+texture = SubResource( 17 )
+
+[node name="Sprite4" type="Sprite" parent="World2"]
+position = Vector2( 48.3295, 167.37 )
+scale = Vector2( 0.851563, 0.8125 )
+texture = SubResource( 18 )
+
+[node name="Sprite5" type="Sprite" parent="World2"]
+position = Vector2( -159.93, 3.81003 )
+texture = SubResource( 19 )
+
+[node name="Sprite6" type="Sprite" parent="World2"]
+position = Vector2( 157.93, 7.94075 )
+texture = SubResource( 20 )
+
+[node name="Sprite7" type="Sprite" parent="World2"]
+position = Vector2( 158.146, 145.12 )
+texture = SubResource( 21 )
+
+[node name="Sprite8" type="Sprite" parent="World2"]
+position = Vector2( -160.68, 123.444 )
+rotation = 1.55523
+texture = SubResource( 22 )
+
+[node name="Sprite9" type="Sprite" parent="World2"]
+position = Vector2( 104.83, -51.1677 )
+rotation = 3.02233
+texture = SubResource( 23 )
+
+[node name="Sprite15" type="Sprite" parent="World2"]
+position = Vector2( -103.67, -55.1678 )
+scale = Vector2( 0.571428, 0.518518 )
+texture = SubResource( 21 )
+
+[node name="Sprite10" type="Sprite" parent="World2"]
+position = Vector2( -132.507, -53.8317 )
+rotation = 3.06648
+scale = Vector2( 1.04176, 0.968182 )
+texture = SubResource( 24 )
+
+[node name="Sprite11" type="Sprite" parent="World2"]
+position = Vector2( 118.364, 119.557 )
+rotation = 1.56141
+scale = Vector2( 1.04176, 0.968182 )
+texture = SubResource( 25 )
+
+[node name="Sprite12" type="Sprite" parent="World2"]
+position = Vector2( -60.7068, 132.921 )
+rotation = 3.13116
+scale = Vector2( 1.04176, 0.968182 )
+texture = SubResource( 26 )
+
+[node name="Sprite13" type="Sprite" parent="World2"]
+position = Vector2( -60.7068, 132.921 )
+rotation = 3.13116
+scale = Vector2( 1.04176, 0.968182 )
+texture = SubResource( 27 )
+
+[node name="Sprite14" type="Sprite" parent="World2"]
+position = Vector2( -75.2143, -0.637329 )
+rotation = 3.13116
+scale = Vector2( 1.04176, 0.968182 )
+texture = SubResource( 28 )
+
+[node name="Sprite16" type="Sprite" parent="World2"]
+position = Vector2( 109.662, -16.6832 )
+rotation = 3.13116
+scale = Vector2( 1.04176, 0.968182 )
+texture = SubResource( 29 )
+
+[node name="Sprite17" type="Sprite" parent="World2"]
+position = Vector2( 123.349, 61.6584 )
+rotation = 4.71094
+scale = Vector2( 1.04176, 0.968182 )
+texture = SubResource( 30 )
+
+[node name="Sprite18" type="Sprite" parent="World2"]
+position = Vector2( 19.0504, 64.49 )
+rotation = 4.71094
+scale = Vector2( 1.04176, 0.968182 )
+texture = SubResource( 31 )
+
+[node name="Sprite19" type="Sprite" parent="World2"]
+position = Vector2( 7.99982, 0.00012207 )
+texture = SubResource( 32 )
+
 [node name="Linker" parent="." instance=ExtResource( 7 )]
 Connector1 = NodePath("../World1/Connector1")
 Connector2 = NodePath("../World2/Connector2")
@@ -80,6 +428,6 @@ Connector2 = NodePath("../World2/Connector2")
 [node name="MovmentLinker" type="Node" parent="Linker"]
 script = ExtResource( 3 )
 
-[connection signal="change_state" from="World2/PreassurePlate" to="World2/Exit2" method="state_changed"]
 [connection signal="change_state" from="World2/PreassurePlate" to="World1/Exit" method="state_changed"]
+[connection signal="change_state" from="World2/PreassurePlate" to="World2/Exit2" method="state_changed"]
 [connection signal="link_or_unlink" from="Linker" to="Linker/MovmentLinker" method="_on_link_or_unlink"]

@@ -34,6 +34,7 @@ _global_script_class_icons={
 
 config/name="GMTK-2021-godot"
 run/main_scene="res://Main.tscn"
+config/icon="res://ICON.png"
 
 [autoload]
 

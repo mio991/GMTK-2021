@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Prefabs/Items/Rock_Green.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/Links/Linker.tscn" type="PackedScene" id=2]
@@ -12,10 +12,52 @@
 [ext_resource path="res://Scripts/Links/MovmentLinker.gd" type="Script" id=10]
 [ext_resource path="res://Assets/TileSet.tres" type="TileSet" id=11]
 [ext_resource path="res://Prefabs/WallsBlue.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Assets/Sheets/rooms.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Sheets/entities.png" type="Texture" id=14]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 4.0
 rough = true
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 828, 95, 71, 63 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 912.606, 81.0179, 69.4473, 54.872 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 92.0725, 172.816, 30.1128, 34.7731 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 94.5614, 125.5, 21.6767, 33.324 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 1369, 73, 58, 60 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 1670.78, 101.66, 52.8984, 25.0272 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 1480.11, 33.2687, 28.809, 32.133 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 1726.53, 263.002, 127.796, 47.4869 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 9 )
@@ -64,6 +106,31 @@ rotation = -1.5708
 position = Vector2( 74.4395, -70.8144 )
 rotation = -1.57079
 
+[node name="Sprite3" type="Sprite" parent="World1"]
+position = Vector2( 90.0922, 134.842 )
+rotation = 1.57079
+scale = Vector2( 0.473586, 0.43852 )
+texture = SubResource( 2 )
+
+[node name="Sprite3" type="Sprite" parent="World1/Sprite3"]
+position = Vector2( -573.116, 411.507 )
+rotation = 3.14159
+scale = Vector2( 0.553075, 0.43852 )
+texture = SubResource( 2 )
+
+[node name="Sprite2" type="Sprite" parent="World1"]
+position = Vector2( 67.4097, 115.463 )
+texture = SubResource( 3 )
+
+[node name="Sprite2" type="Sprite" parent="World1/Sprite2"]
+position = Vector2( -141.715, -237.469 )
+scale = Vector2( 0.360001, 0.52 )
+texture = SubResource( 3 )
+
+[node name="Sprite4" type="Sprite" parent="World1"]
+position = Vector2( 86.935, 129.772 )
+texture = SubResource( 10 )
+
 [node name="Linker" parent="." instance=ExtResource( 2 )]
 Connector1 = NodePath("../World1/Connector1")
 Connector2 = NodePath("../Node2D/Connector2")
@@ -88,7 +155,6 @@ position = Vector2( 320, 448 )
 [node name="Exit" parent="Node2D" instance=ExtResource( 7 )]
 position = Vector2( 176, 520 )
 rotation = -1.57079
-type = "blue"
 
 [node name="Rock3" parent="Node2D" instance=ExtResource( 1 )]
 position = Vector2( 386.142, 524.777 )
@@ -109,6 +175,32 @@ position = Vector2( 448, 430.557 )
 position = Vector2( 384.14, 526.779 )
 rotation = 9.89437e-06
 
+[node name="Sprite4" type="Sprite" parent="Node2D"]
+position = Vector2( 191.181, 432.449 )
+rotation = 1.77287
+scale = Vector2( 1.01863, -0.975653 )
+texture = SubResource( 8 )
+
+[node name="Sprite" type="Sprite" parent="Node2D"]
+position = Vector2( 442.551, 380.746 )
+texture = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Node2D/Sprite"]
+position = Vector2( -240.496, 116.885 )
+texture = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Node2D/Sprite/Sprite"]
+position = Vector2( 247.224, 34.4767 )
+texture = SubResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="Node2D/Sprite/Sprite/Sprite"]
+position = Vector2( -162.293, 22.7041 )
+rotation = 3.14159
+texture = SubResource( 7 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0.629974, 0 )
+
 [connection signal="link_or_unlink" from="Linker" to="Linker/MovmentLinker" method="_on_link_or_unlink"]
-[connection signal="change_state" from="Node2D/PreassurePlate" to="Node2D/Exit" method="state_changed"]
 [connection signal="change_state" from="Node2D/PreassurePlate" to="World1/Exit" method="state_changed"]
+[connection signal="change_state" from="Node2D/PreassurePlate" to="Node2D/Exit" method="state_changed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Prefabs/Links/Linker.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/WallsRed.tscn" type="PackedScene" id=2]
@@ -13,10 +13,32 @@
 [ext_resource path="res://Assets/TileSet.tres" type="TileSet" id=11]
 [ext_resource path="res://Prefabs/WallsBlue.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Prefabs/And.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Assets/Sheets/rooms.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Sheets/entities.png" type="Texture" id=15]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 4.0
 rough = true
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 931.054, 7.0082, 26.1648, 50.0544 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 46.2442, 171.437, 34.7731, 38.7165 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 1539, 99.26, 96, 26 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 7.80264, 120.872, 33.8898, 40.0515 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 9 )
@@ -55,6 +77,21 @@ position = Vector2( 7.99948, -144 )
 [node name="Preassure Plate" parent="World1" instance=ExtResource( 3 )]
 position = Vector2( 47.2088, -127.619 )
 
+[node name="Sprite2" type="Sprite" parent="World1"]
+position = Vector2( -80.5951, 84.434 )
+texture = SubResource( 2 )
+offset = Vector2( 0.323959, 1.52588e-05 )
+
+[node name="Sprite2" type="Sprite" parent="World1/Sprite2"]
+position = Vector2( 0.864532, -198.598 )
+texture = SubResource( 2 )
+offset = Vector2( 0.323959, 1.52588e-05 )
+
+[node name="Sprite" type="Sprite" parent="World1/Sprite2/Sprite2"]
+position = Vector2( 23.1898, 71.947 )
+rotation = -0.838721
+texture = SubResource( 3 )
+
 [node name="Linker" parent="." instance=ExtResource( 1 )]
 Connector1 = NodePath("../World1/Connector1")
 Connector2 = NodePath("../Node2D/Connector2")
@@ -80,7 +117,6 @@ position = Vector2( 0, 0 )
 [node name="Exit" parent="Node2D" instance=ExtResource( 7 )]
 position = Vector2( 144, 0 )
 rotation = 1.5708
-type = "blue"
 
 [node name="Connector2" parent="Node2D" instance=ExtResource( 4 )]
 position = Vector2( -128, -80 )
@@ -99,6 +135,14 @@ position = Vector2( -2.78305, -82.6789 )
 
 [node name="Rock" parent="Node2D" instance=ExtResource( 6 )]
 position = Vector2( -65.1491, -48.9987 )
+
+[node name="Sprite" type="Sprite" parent="Node2D"]
+position = Vector2( 97.1079, 81.5173 )
+texture = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Node2D/Sprite"]
+position = Vector2( -238.315, -4.89996 )
+texture = SubResource( 5 )
 
 [node name="Rock3" parent="Node2D" instance=ExtResource( 6 )]
 position = Vector2( -0.263245, -47.7387 )
