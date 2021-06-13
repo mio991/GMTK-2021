@@ -47,7 +47,7 @@ physics_material_override = SubResource( 1 )
 position = Vector2( -64.0003, -24 )
 
 [node name="Exit" parent="World1" instance=ExtResource( 10 )]
-position = Vector2( 120, 2.28882e-05 )
+position = Vector2( 96, -96 )
 
 [node name="World2" type="Node2D" parent="."]
 position = Vector2( 320, 392 )
@@ -68,13 +68,18 @@ position = Vector2( 0, 56 )
 position = Vector2( -128, -24 )
 
 [node name="Rock2" parent="World2" instance=ExtResource( 9 )]
-position = Vector2( -96.0004, -24.0001 )
+position = Vector2( -96, -24 )
 
 [node name="Spawn2" type="Node2D" parent="World2"]
 position = Vector2( -80.0003, 80 )
 
 [node name="PreassurePlate" parent="World2" instance=ExtResource( 8 )]
-position = Vector2( 127.999, 136 )
+position = Vector2( 128, 136 )
+
+[node name="Exit2" parent="World2" instance=ExtResource( 10 )]
+position = Vector2( -144, 72 )
+rotation = -1.57362
+type = "blue"
 
 [node name="Linker" parent="." instance=ExtResource( 7 )]
 Connector1 = NodePath("../World1/Connector1")
@@ -84,4 +89,5 @@ Connector2 = NodePath("../World2/Connector2")
 script = ExtResource( 3 )
 
 [connection signal="change_state" from="World2/PreassurePlate" to="World1/Exit" method="state_changed"]
+[connection signal="change_state" from="World2/PreassurePlate" to="World2/Exit2" method="state_changed"]
 [connection signal="link_or_unlink" from="Linker" to="Linker/MovmentLinker" method="_on_link_or_unlink"]
