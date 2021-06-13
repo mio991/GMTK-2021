@@ -18,8 +18,8 @@ rough = true
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
-Spawn_1 = NodePath("World1/Spawn1")
-Spawn_2 = NodePath("World2/Spawn2")
+Spawn_1 = NodePath("World2/Spawn")
+Spawn_2 = NodePath("World1/Spawn")
 
 [node name="World1" type="Node2D" parent="."]
 position = Vector2( 320, 144 )
@@ -43,7 +43,7 @@ position = Vector2( -128, -79.9999 )
 position = Vector2( -88.0003, -80 )
 physics_material_override = SubResource( 1 )
 
-[node name="Spawn1" type="Node2D" parent="World1"]
+[node name="Spawn" type="Node2D" parent="World1"]
 position = Vector2( -64.0003, -24 )
 
 [node name="Exit" parent="World1" instance=ExtResource( 10 )]
@@ -70,8 +70,8 @@ position = Vector2( -128, -24 )
 [node name="Rock2" parent="World2" instance=ExtResource( 9 )]
 position = Vector2( -96, -24 )
 
-[node name="Spawn2" type="Node2D" parent="World2"]
-position = Vector2( -80.0003, 80 )
+[node name="Spawn" type="Node2D" parent="World2"]
+position = Vector2( -88, 32 )
 
 [node name="PreassurePlate" parent="World2" instance=ExtResource( 8 )]
 position = Vector2( 128, 136 )
