@@ -4,17 +4,17 @@
 [ext_resource path="res://Scripts/Character/Character.gd" type="Script" id=2]
 [ext_resource path="res://Prefabs/Character/HandSlot.tscn" type="PackedScene" id=3]
 
-[sub_resource type="AtlasTexture" id=1]
+[sub_resource type="AtlasTexture" id=15]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 10, 123, 38, 43 )
 
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="AtlasTexture" id=16]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 48, 123, 38, 43 )
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=17]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 86, 123, 38, 43 )
@@ -29,85 +29,89 @@ flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 162, 123, 38, 43 )
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=18]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 10, 166, 38, 43 )
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=19]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 48, 166, 38, 43 )
 
-[sub_resource type="AtlasTexture" id=8]
+[sub_resource type="AtlasTexture" id=20]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 86, 166, 38, 43 )
 
-[sub_resource type="AtlasTexture" id=9]
+[sub_resource type="AtlasTexture" id=21]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 124, 166, 38, 43 )
 
-[sub_resource type="AtlasTexture" id=10]
+[sub_resource type="AtlasTexture" id=22]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 162, 166, 38, 43 )
 
-[sub_resource type="SpriteFrames" id=11]
+[sub_resource type="SpriteFrames" id=23]
 animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
+"frames": [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 4 ), SubResource( 5 ) ],
 "loop": true,
 "name": "blue",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
+"frames": [ SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ) ],
 "loop": true,
 "name": "red",
 "speed": 5.0
 } ]
 
-[sub_resource type="CircleShape2D" id=12]
+[sub_resource type="CircleShape2D" id=24]
 radius = 15.0
 
-[sub_resource type="Animation" id=13]
-length = 2.0
-tracks/0/type = "bezier"
+[sub_resource type="Animation" id=25]
+length = 0.5
+tracks/0/type = "value"
 tracks/0/path = NodePath("AudioStreamPlayer:volume_db")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"points": PoolRealArray( -80, -0.25, -0.00981622, 1.33, 37, 0, -1.56, -19, 0.25, 0.00679272 ),
-"times": PoolRealArray( 0, 1.8 )
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 3,
+"values": [ 1.0 ]
 }
 
 [sub_resource type="Animation" id=14]
-length = 2.0
-tracks/0/type = "bezier"
-tracks/0/path = NodePath("AudioStreamPlayer:volume_db")
+length = 0.5
+tracks/0/type = "method"
+tracks/0/path = NodePath("AudioStreamPlayer")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"points": PoolRealArray( 1, -0.25, -0.00981622, 1.03, -1, -80, -0.7, 4, 0.31, -7 ),
-"times": PoolRealArray( 0, 2 )
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath("AudioStreamPlayer")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 2 ),
+"times": PoolRealArray( 0.5 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
 "method": "stop"
 } ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/1/interp = 2
+tracks/1/loop_wrap = false
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 3,
+"values": [ -80.0 ]
 }
 
 [node name="Character" type="KinematicBody2D"]
@@ -115,20 +119,20 @@ collision_layer = 41
 script = ExtResource( 2 )
 
 [node name="CharacterSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 11 )
+frames = SubResource( 23 )
 animation = "blue"
 frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
-shape = SubResource( 12 )
+shape = SubResource( 24 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-volume_db = 1.0
+volume_db = -80.0
 bus = "Music"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Fade_In = SubResource( 13 )
+anims/Fade_In = SubResource( 25 )
 anims/Fade_Out = SubResource( 14 )
 
 [node name="PickArea" parent="." instance=ExtResource( 3 )]
@@ -138,3 +142,5 @@ pin_joint = NodePath("../PinJoint2D")
 node_a = NodePath("..")
 bias = 0.5
 softness = 1.0
+
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]

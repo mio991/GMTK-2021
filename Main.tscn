@@ -15,19 +15,35 @@ __meta__ = {
 }
 
 [node name="Level0" type="Button" parent="."]
-margin_top = 276.0
+margin_top = 248.0
 margin_right = 344.0
-margin_bottom = 296.0
+margin_bottom = 268.0
 text = "Level 1"
 script = ExtResource( 1 )
 
 [node name="Level1" type="Button" parent="."]
-margin_top = 304.0
+margin_top = 276.0
 margin_right = 344.0
-margin_bottom = 324.0
+margin_bottom = 296.0
 text = "Level 2"
 script = ExtResource( 1 )
 Level = 1
+
+[node name="Level2" type="Button" parent="."]
+margin_top = 304.0
+margin_right = 344.0
+margin_bottom = 324.0
+text = "Level 3"
+script = ExtResource( 1 )
+Level = 2
+
+[node name="Level3" type="Button" parent="."]
+margin_top = 332.0
+margin_right = 344.0
+margin_bottom = 352.0
+text = "Level 4"
+script = ExtResource( 1 )
+Level = 3
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
@@ -36,3 +52,5 @@ autoplay = true
 
 [connection signal="pressed" from="Level0" to="Level0" method="_on_pressed"]
 [connection signal="pressed" from="Level1" to="Level1" method="_on_pressed"]
+[connection signal="pressed" from="Level2" to="Level2" method="_on_pressed"]
+[connection signal="pressed" from="Level3" to="Level3" method="_on_pressed"]

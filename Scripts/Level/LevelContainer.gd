@@ -4,7 +4,9 @@ class_name LevelContainer
 
 const Levels = [
 	preload("res://Levels/00.tscn"),
-	preload("res://Levels/01.tscn")
+	preload("res://Levels/01.tscn"),
+	preload("res://Levels/02.tscn"),
+	preload("res://Levels/03.tscn")
 ]
 
 var currentLevel = -1

@@ -71,3 +71,7 @@ func start_charater_music(position:float):
 func stop_charater_music():
 	self.animation_player.play("Fade_Out")
 	return self.music_player.get_playback_position()
+
+
+func _on_AudioStreamPlayer_finished():
+	music_player.play()

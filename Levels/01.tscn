@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/Level/Level.gd" type="Script" id=1]
 [ext_resource path="res://Assets/TileSet.tres" type="TileSet" id=2]
@@ -7,8 +7,10 @@
 [ext_resource path="res://Prefabs/Links/LinkerStation.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Prefabs/Items/Rock_Yellow.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Prefabs/Links/Linker.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Prefabs/Fire.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Prefabs/Exit.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Prefabs/Items/Rock_Green.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Prefabs/WallsBlue.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Prefabs/Items/Preassure_Plate_Blue.tscn" type="PackedScene" id=11]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 4.0
@@ -20,58 +22,65 @@ Spawn_1 = NodePath("World1/Spawn1")
 Spawn_2 = NodePath("World2/Spawn2")
 
 [node name="World1" type="Node2D" parent="."]
-position = Vector2( 144, 296 )
-
-[node name="World1" parent="World1" instance=ExtResource( 4 )]
-position = Vector2( 0, 0 )
-rotation = 0.0
 
 [node name="TileMap" type="TileMap" parent="World1"]
-position = Vector2( -96, -144 )
+position = Vector2( 176, 56 )
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 32, 32 )
 collision_layer = 8
 collision_mask = 8
 format = 1
-tile_data = PoolIntArray( 0, 15, 0, 1, 15, 0, 2, 15, 0, 3, 15, 0, 4, 15, 0, 5, 15, 0, 65536, 15, 0, 65537, 2, 196609, 65538, 2, 0, 65539, 2, 131072, 65540, 2, 0, 65541, 15, 0, 131072, 15, 0, 131073, 2, 0, 131074, 2, 0, 131075, 2, 0, 131076, 2, 0, 131077, 15, 0, 196608, 15, 0, 196609, 2, 0, 196610, 2, 0, 196611, 2, 0, 196612, 2, 65537, 196613, 15, 0, 262144, 15, 0, 262145, 2, 1, 262146, 2, 131072, 262147, 2, 131073, 262148, 2, 0, 262149, 15, 0, 327680, 15, 0, 327681, 2, 0, 327682, 2, 65536, 327683, 2, 0, 327684, 2, 0, 327685, 15, 0, 393216, 15, 0, 393217, 2, 0, 393218, 2, 0, 393219, 2, 0, 393220, 2, 0, 393221, 15, 0, 458752, 15, 0, 458753, 2, 131073, 458754, 2, 0, 458755, 2, 0, 458756, 2, 0, 458757, 15, 0, 524288, 15, 0, 524289, 15, 0, 524290, 15, 0, 524291, 15, 0, 524292, 15, 0, 524293, 15, 0 )
+tile_data = PoolIntArray( 0, 2, 196608, 1, 2, 0, 2, 2, 131073, 3, 2, 131073, 4, 2, 1, 5, 2, 0, 6, 2, 131073, 7, 2, 65537, 8, 2, 131073, 65536, 2, 0, 65537, 2, 131072, 65538, 2, 131072, 65539, 2, 0, 65540, 2, 0, 65541, 2, 65537, 65542, 2, 0, 65543, 2, 196608, 65544, 2, 0, 131072, 2, 131072, 131073, 2, 196608, 131074, 2, 196608, 131075, 2, 65536, 131076, 17, 0, 131077, 17, 1, 131078, 2, 131072, 131079, 2, 131073, 131080, 2, 0, 196608, 2, 131073, 196609, 2, 196608, 196610, 2, 1, 196611, 2, 131073, 196612, 17, 65536, 196613, 17, 65537, 196614, 2, 196609, 196615, 2, 0, 196616, 2, 1, 262144, 2, 0, 262145, 2, 0, 262146, 2, 131072, 262147, 2, 65537, 262148, 2, 0, 262149, 2, 131072, 262150, 2, 131072, 262151, 2, 131073, 262152, 2, 1, 327680, 2, 65536, 327681, 2, 65536, 327682, 2, 196609, 327683, 2, 0, 327684, 2, 131073, 327685, 2, 131072, 327686, 2, 0, 327687, 2, 131072, 327688, 2, 131072 )
+
+[node name="Walls" parent="World1" instance=ExtResource( 4 )]
+position = Vector2( 320, 152 )
 
 [node name="Connector1" parent="World1" instance=ExtResource( 5 )]
-position = Vector2( -79.9995, 128 )
+position = Vector2( 192, 72 )
 
 [node name="Rock" parent="World1" instance=ExtResource( 6 )]
-position = Vector2( -79.9997, 88.0003 )
+position = Vector2( 232, 72 )
 physics_material_override = SubResource( 1 )
 
 [node name="Spawn1" type="Node2D" parent="World1"]
-position = Vector2( -23.9998, 64.0001 )
+position = Vector2( 256, 128 )
 
-[node name="World2" type="Node2D" parent="."]
-position = Vector2( 456, 296 )
+[node name="Exit" parent="World1" instance=ExtResource( 8 )]
+position = Vector2( 272, 56 )
 
-[node name="World2" parent="World2" instance=ExtResource( 4 )]
-position = Vector2( 0, 0 )
-rotation = 0.0
+[node name="World2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 320, 448 )
 
 [node name="TileMap" type="TileMap" parent="World2"]
-position = Vector2( -96, -144 )
+position = Vector2( -95.9995, 144 )
+rotation = -1.5708
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 32, 32 )
 collision_layer = 8
 collision_mask = 8
 format = 1
-tile_data = PoolIntArray( 0, 2, 0, 1, 2, 131072, 2, 2, 0, 3, 2, 65536, 4, 2, 0, 5, 2, 1, 65536, 2, 131072, 65537, 2, 65537, 65538, 2, 65536, 65539, 2, 131072, 65540, 2, 0, 65541, 2, 0, 131072, 2, 131072, 131073, 2, 0, 131074, 2, 196608, 131075, 2, 131072, 131076, 2, 65537, 131077, 2, 196609, 196608, 14, 0, 196609, 14, 0, 196610, -2147483635, 0, 196611, 14, 0, 196612, 14, 0, 196613, 14, 0, 262144, 14, 0, 262145, 14, 0, 262146, -1073741811, 0, 262147, 14, 0, 262148, 14, 0, 262149, 14, 0, 327680, 2, 131072, 327681, 2, 196609, 327682, 2, 1, 327683, 2, 65537, 327684, 2, 65536, 327685, 2, 0, 393216, 2, 0, 393217, 2, 0, 393218, 2, 65537, 393219, 2, 0, 393220, 2, 196609, 393221, 2, 1, 458752, 2, 0, 458753, 2, 65537, 458754, 2, 131072, 458755, 2, 65536, 458756, 2, 131073, 458757, 2, 65537, 524288, 2, 65537, 524289, 2, 0, 524290, 2, 0, 524291, 2, 0, 524292, 2, 0, 524293, 2, 196608 )
+tile_data = PoolIntArray( 0, 2, 196608, 1, 2, 0, 2, 2, 131073, 3, 2, 65536, 4, 21, 0, 5, 21, 1, 6, 2, 65537, 7, 20, 0, 8, 20, 1, 65536, 2, 0, 65537, 2, 131072, 65538, 2, 131072, 65539, 2, 131073, 65540, 21, 0, 65541, 21, 0, 65542, 2, 196609, 65543, 20, 65536, 65544, 20, 65537, 131072, 2, 131072, 131073, 2, 196608, 131074, 2, 196608, 131075, 2, 131073, 131076, 21, 0, 131077, 21, 0, 131078, 2, 0, 131079, 19, 0, 131080, 19, 1, 196608, 2, 131073, 196609, 2, 1, 196610, 2, 0, 196611, 2, 0, 196612, 21, 0, 196613, 21, 0, 196614, 2, 0, 196615, 19, 65536, 196616, 19, 65537, 262144, 2, 0, 262145, 2, 1, 262146, 21, 0, 262147, 21, 0, 262148, 21, 0, 262149, 21, 0, 262150, 2, 196608, 262151, 2, 0, 262152, 2, 0, 327680, 2, 65536, 327681, 2, 196609, 327682, 21, 65536, 327683, 21, 0, 327684, 21, 0, 327685, 21, 65537, 327686, 2, 196609, 327687, 2, 131072, 327688, 2, 131072 )
+
+[node name="Exit" parent="World2" instance=ExtResource( 8 )]
+position = Vector2( -95.9998, 48.0003 )
+rotation = -1.5708
+type = "blue"
 
 [node name="Connector2" parent="World2" instance=ExtResource( 5 )]
 position = Vector2( -79.9995, 128 )
+rotation = -1.5708
 
 [node name="Rock2" parent="World2" instance=ExtResource( 9 )]
 position = Vector2( -79.9997, 96.0003 )
+rotation = -1.5708
 
 [node name="Spawn2" type="Node2D" parent="World2"]
 position = Vector2( 24.0003, 79.9999 )
+rotation = -1.5708
 
-[node name="Area2D" parent="World2" instance=ExtResource( 8 )]
-position = Vector2( 17.1138, -95.3318 )
+[node name="PreassurePlate" parent="World2" instance=ExtResource( 11 )]
+position = Vector2( 79.9995, -128 )
+rotation = -1.5708
 
 [node name="Linker" parent="." instance=ExtResource( 7 )]
 Connector1 = NodePath("../World1/Connector1")
@@ -80,4 +89,6 @@ Connector2 = NodePath("../World2/Connector2")
 [node name="MovmentLinker" type="Node" parent="Linker"]
 script = ExtResource( 3 )
 
+[connection signal="change_state" from="World2/PreassurePlate" to="World1/Exit" method="state_changed"]
+[connection signal="change_state" from="World2/PreassurePlate" to="World2/Exit" method="state_changed"]
 [connection signal="link_or_unlink" from="Linker" to="Linker/MovmentLinker" method="_on_link_or_unlink"]
