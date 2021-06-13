@@ -12,8 +12,10 @@ func state_changed(state:bool):
 	if self.active != state:
 		if state:
 			$AnimatedSprite.play(type)
+			$AudioStreamPlayer2D.play()
 		else:
 			$AnimatedSprite.play(type, true)
+			$AudioStreamPlayer2D.play()
 			self.active = false
 
 
@@ -26,3 +28,5 @@ func _on_AnimatedSprite_animation_finished():
 func _on_Exit_body_entered(body):
 	if self.active:
 		get_tree().current_scene.load_level()
+
+

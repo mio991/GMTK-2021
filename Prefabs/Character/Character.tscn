@@ -1,12 +1,14 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
+[ext_resource path="res://Scripts/Character/WalkSoundController.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Character/Character.gd" type="Script" id=2]
 [ext_resource path="res://Prefabs/Character/HandSlot.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Audio/sounds/0.1_walking_sand_good.mp3" type="AudioStream" id=4]
 
-[sub_resource type="CircleShape2D" id=24]
+[sub_resource type="CircleShape2D" id=15]
 radius = 15.0
 
-[sub_resource type="Animation" id=25]
+[sub_resource type="Animation" id=16]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("AudioStreamPlayer:volume_db")
@@ -56,14 +58,14 @@ script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
-shape = SubResource( 24 )
+shape = SubResource( 15 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 volume_db = -80.0
 bus = "Music"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Fade_In = SubResource( 25 )
+anims/Fade_In = SubResource( 16 )
 anims/Fade_Out = SubResource( 14 )
 
 [node name="PickArea" parent="." instance=ExtResource( 3 )]
@@ -74,4 +76,10 @@ node_a = NodePath("..")
 bias = 0.5
 softness = 1.0
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+bus = "Effects"
+script = ExtResource( 1 )
+
+[connection signal="state_change" from="." to="AudioStreamPlayer2D" method="_on_Character_state_change"]
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]

@@ -11,5 +11,5 @@ dest_files=[ "res://.import/1.1_picking_best.mp3-1b8bf8ce77355752afe3974bc7c7332
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
