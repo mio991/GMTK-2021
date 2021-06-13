@@ -1,7 +1,6 @@
 extends KinematicBody2D
 
-export(String, "red", "blue") var type = "red"
-	
+signal state_change(direction, moving)
 
 enum ViewDirection {
 	Unknow = 0,
@@ -39,9 +38,11 @@ var is_moving = false
 
 func _ready():
 	self.music_player.stream = self.character_music
-	$CharacterSprite.animation = type
 
-func _process(_delta):	
+func _process(_delta):
+	var old_direction = self.direction
+	var old_moving = self.is_moving
+	
 	var view_direction = ViewDirection.Unknow
 	if Input.is_action_pressed("move_right"):
 		view_direction += ViewDirection.Right
@@ -56,6 +57,9 @@ func _process(_delta):
 		self.direction = view_direction
 		
 	is_moving = view_direction != ViewDirection.Unknow
+	
+	if old_direction != self.direction or old_moving != self.is_moving:
+		self.emit_signal("state_change", self.direction, self.is_moving)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):	
