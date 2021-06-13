@@ -9,11 +9,12 @@ func _ready():
 	$AnimatedSprite.animation = type
 
 func state_changed(state:bool):
-	if state:
-		$AnimatedSprite.play(type)
-	else:
-		$AnimatedSprite.play(type, true)
-		self.active = false
+	if self.active != state:
+		if state:
+			$AnimatedSprite.play(type)
+		else:
+			$AnimatedSprite.play(type, true)
+			self.active = false
 
 
 func _on_AnimatedSprite_animation_finished():

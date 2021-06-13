@@ -28,3 +28,4 @@ func apply_changes():
 		self.temprature += self.temprature_delta
 		self.temprature_delta = 0
 		self.emit_signal("state_changed", self)
+
