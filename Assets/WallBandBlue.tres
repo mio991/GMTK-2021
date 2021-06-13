@@ -1,8 +1,8 @@
 [gd_resource type="AtlasTexture" load_steps=2 format=2]
 
-[ext_resource path="res://Assets/entities.png" type="Texture" id=1]
+[ext_resource path="res://Assets/rooms.png" type="Texture" id=1]
 
 [resource]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 10, 123, 190, 87 )
+region = Rect2( 1093, 173, 350, 254 )
