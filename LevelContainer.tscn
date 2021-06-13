@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Scripts/LevelContainer.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Level/LevelContainer.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Audio/WORLD 1 in 150BPM.wav" type="AudioStream" id=2]
 [ext_resource path="res://Assets/Audio/WORLD 2 in 150bpm.wav" type="AudioStream" id=3]
 [ext_resource path="res://Prefabs/Character/Character.tscn" type="PackedScene" id=4]

@@ -1,8 +1,10 @@
 extends Node2D
 
+class_name LevelContainer
+
 const Levels = [
 	preload("res://Levels/00.tscn"),
-	preload("res://Levels/00.tscn")
+	preload("res://Levels/01.tscn")
 ]
 
 var currentLevel = -1
