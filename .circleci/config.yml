@@ -9,7 +9,7 @@ jobs:
           name: Install dependencies
           command: |
             sudo apt-get update
-            sudo apt-get --allow install wget zip unzip
+            sudo apt-get -y install wget zip unzip
       - run:
           name: Download Godot
           command: |
@@ -22,15 +22,15 @@ jobs:
       - run: cd ./repo
       - run:
           name: Build Win64
-          command: ./godot --export win64 project.godot
+          command: ../godot --export win64 project.godot
       - run:
           name: Build Web
-          command: ./godot --export web project.godot
+          command: ../godot --export web project.godot
       - run:
           name: Build Linux
-          command: ./godot --export linux project.godot
+          command: ../godot --export linux project.godot
       - store_artifacts:
-          path: ./Exports
+          path: ./repo/Exports
       
 workflows:
   build:
