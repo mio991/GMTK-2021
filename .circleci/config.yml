@@ -9,7 +9,7 @@ jobs:
           name: Install dependencies
           command: |
             sudo apt-get update
-            sudo apt-get -y install wget zip unzip
+            sudo apt-get --allow install wget zip unzip
       - run:
           name: Download Godot
           command: |
@@ -17,7 +17,9 @@ jobs:
             unzip Godot_v3.3.2-stable_linux_headless.64.zip
             mv Godot_v3.3.2-stable_linux_headless.64 godot
             chmod +x godot
-      - checkout
+      - checkout:
+          path: ./repo
+      - run: cd ./repo
       - run:
           name: Build Win64
           command: ./godot --export win64 project.godot
