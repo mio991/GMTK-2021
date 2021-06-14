@@ -32,9 +32,13 @@ _global_script_class_icons={
 
 [application]
 
-config/name="GMTK-2021-godot"
+config/name="Entangle"
+config/description="Two friends only know each other through the strange device in ancient ruins. It allows them to entangle objects in their respective worlds and write things on the walls to communicate.
+
+One day they see the sky in their worlds shatter and decide to delve in the ruins in hope of finding some way to restore it."
 run/main_scene="res://Main.tscn"
 config/icon="res://ICON.png"
+config/windows_native_icon="res://ICON.ico"
 
 [autoload]
 

@@ -1,0 +1,35 @@
+# Use the latest 2.1 version of CircleCI pipeline process engine. See: https://circleci.com/docs/2.0/configuration-reference
+version: 2.1
+jobs:
+  build:
+    machine:
+      image: ubuntu-1604:202004-01
+    steps:
+      - run:
+          name: Install dependencies
+          command: |
+            sudo apt-get update
+            sudo apt-get -y install wget zip unzip
+      - run:
+          name: Download Godot
+          command: |
+            wget https://downloads.tuxfamily.org/godotengine/3.3.2/Godot_v3.3.2-stable_linux_headless.64.zip
+            unzip Godot_v3.1-stable_linux_headless.64.zip
+            mv Godot_v3.1-stable_linux_headless.64 godot
+            chmod +x godot
+      - run:
+          name: Build Win64
+          command: ./godot --export win64 project.godot
+      - run:
+          name: Build Web
+          command: ./godot --export web project.godot
+      - run:
+          name: Build Linux
+          command: ./godot --export linux project.godot
+      - store_artifacts:
+          path: ./Exports
+      
+workflows:
+  welcome:
+    jobs:
+      - build
