@@ -19,16 +19,20 @@ jobs:
             chmod +x godot
       - checkout:
           path: ./repo
-      - run: cd ./repo
       - run:
           name: Build Win64
-          command: ../godot --export win64 project.godot
+          command: ./godot --export win64 ./repo/project.godot
       - run:
           name: Build Web
-          command: ../godot --export web project.godot
+          command: ./godot --export web ./repo/project.godot
       - run:
           name: Build Linux
-          command: ../godot --export linux project.godot
+          command: ./godot --export linux ./repo/project.godot
+      - run:
+          name: List Files
+          command: |
+            ls .
+            ls ./repo
       - store_artifacts:
           path: ./repo/Exports
       
