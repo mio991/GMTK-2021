@@ -196,101 +196,104 @@ position = Vector2( 0, 0 )
 [node name="Connector1" parent="World1" instance=ExtResource( 5 )]
 position = Vector2( -128, -79.9999 )
 
-[node name="Spawn" type="Node2D" parent="World1"]
-position = Vector2( -72.0002, -55.9999 )
-
 [node name="Exit" parent="World1" instance=ExtResource( 10 )]
 position = Vector2( 144, 0 )
 rotation = 1.5708
 
-[node name="Sprite" type="Sprite" parent="World1"]
-position = Vector2( -21.7254, -110.875 )
+[node name="Deko" type="Node" parent="World1"]
+
+[node name="Sprite" type="Sprite" parent="World1/Deko"]
+position = Vector2( 282.275, 41.1249 )
 texture = SubResource( 1 )
 
-[node name="Sprite2" type="Sprite" parent="World1"]
-position = Vector2( -158.071, 2.24741 )
+[node name="Sprite2" type="Sprite" parent="World1/Deko"]
+position = Vector2( 145.929, 154.247 )
 rotation = -1.57105
+scale = Vector2( 1, 1 )
 texture = SubResource( 2 )
 
-[node name="Sprite3" type="Sprite" parent="World1"]
-position = Vector2( 71.9187, -86.1526 )
+[node name="Sprite3" type="Sprite" parent="World1/Deko"]
+position = Vector2( 375.919, 65.8473 )
 texture = SubResource( 3 )
 
-[node name="Sprite4" type="Sprite" parent="World1"]
-position = Vector2( -70.4205, 115.37 )
+[node name="Sprite4" type="Sprite" parent="World1/Deko"]
+position = Vector2( 233.58, 267.37 )
 texture = SubResource( 4 )
 
-[node name="Sprite5" type="Sprite" parent="World1"]
-position = Vector2( 159.57, -53.5646 )
+[node name="Sprite5" type="Sprite" parent="World1/Deko"]
+position = Vector2( 463.57, 98.4353 )
 texture = SubResource( 5 )
 
-[node name="Sprite6" type="Sprite" parent="World1"]
-position = Vector2( -159.57, 52.4408 )
+[node name="Sprite6" type="Sprite" parent="World1/Deko"]
+position = Vector2( 144.43, 204.441 )
 texture = SubResource( 6 )
 
-[node name="Sprite8" type="Sprite" parent="World1"]
-position = Vector2( 158.82, 49.4442 )
+[node name="Sprite8" type="Sprite" parent="World1/Deko"]
+position = Vector2( 462.82, 201.444 )
 texture = SubResource( 7 )
 
-[node name="Sprite9" type="Sprite" parent="World1"]
-position = Vector2( -121.67, -111.668 )
+[node name="Sprite9" type="Sprite" parent="World1/Deko"]
+position = Vector2( 182.33, 40.3319 )
 texture = SubResource( 8 )
 
-[node name="Sprite15" type="Sprite" parent="World1"]
-position = Vector2( -121.67, -111.668 )
+[node name="Sprite15" type="Sprite" parent="World1/Deko"]
+position = Vector2( 182.33, 40.3319 )
 texture = SubResource( 9 )
 
-[node name="Sprite10" type="Sprite" parent="World1"]
-position = Vector2( -25.0073, -85.8317 )
+[node name="Sprite10" type="Sprite" parent="World1/Deko"]
+position = Vector2( 278.993, 66.1682 )
 rotation = 3.06648
 scale = Vector2( 1.04176, 0.968182 )
 texture = SubResource( 10 )
 
-[node name="Sprite11" type="Sprite" parent="World1"]
-position = Vector2( 114.864, 62.0575 )
+[node name="Sprite11" type="Sprite" parent="World1/Deko"]
+position = Vector2( 418.864, 214.057 )
 rotation = 1.56141
 scale = Vector2( 1.04176, 0.968182 )
 texture = SubResource( 11 )
 
-[node name="Sprite12" type="Sprite" parent="World1"]
-position = Vector2( -64.2068, 75.4209 )
+[node name="Sprite12" type="Sprite" parent="World1/Deko"]
+position = Vector2( 239.793, 227.421 )
 rotation = 3.13116
 scale = Vector2( 1.04176, 0.968182 )
 texture = SubResource( 12 )
 
-[node name="Sprite13" type="Sprite" parent="World1"]
-position = Vector2( -64.2068, 75.4209 )
+[node name="Sprite13" type="Sprite" parent="World1/Deko"]
+position = Vector2( 239.793, 227.421 )
 rotation = 3.13116
 scale = Vector2( 1.04176, 0.968182 )
 texture = SubResource( 13 )
 
-[node name="Sprite14" type="Sprite" parent="World1"]
-position = Vector2( -79.3089, -58.1373 )
+[node name="Sprite14" type="Sprite" parent="World1/Deko"]
+position = Vector2( 224.691, 93.8626 )
 rotation = 3.13116
 scale = Vector2( 1.04176, 0.968182 )
 texture = SubResource( 13 )
 
-[node name="Sprite16" type="Sprite" parent="World1"]
-position = Vector2( 106.162, -74.1832 )
+[node name="Sprite16" type="Sprite" parent="World1/Deko"]
+position = Vector2( 410.162, 77.8167 )
 rotation = 3.13116
 scale = Vector2( 1.04176, 0.968182 )
 texture = SubResource( 13 )
 
-[node name="Sprite17" type="Sprite" parent="World1"]
-position = Vector2( 119.849, 4.15837 )
-rotation = 4.71094
+[node name="Sprite17" type="Sprite" parent="World1/Deko"]
+position = Vector2( 423.849, 156.158 )
+rotation = -1.57225
 scale = Vector2( 1.04176, 0.968182 )
 texture = SubResource( 13 )
 
-[node name="Sprite18" type="Sprite" parent="World1"]
-position = Vector2( 15.5504, 6.98999 )
-rotation = 4.71094
+[node name="Sprite18" type="Sprite" parent="World1/Deko"]
+position = Vector2( 319.551, 158.99 )
+rotation = -1.57225
 scale = Vector2( 1.04176, 0.968182 )
 texture = SubResource( 14 )
 
-[node name="Sprite7" type="Sprite" parent="World1"]
-position = Vector2( -64.0002, -55.9999 )
+[node name="Sprite7" type="Sprite" parent="World1/Deko"]
+position = Vector2( 240, 96 )
 texture = SubResource( 15 )
+
+[node name="Spawn" type="Node2D" parent="World1"]
+position = Vector2( 7.99982, 248 )
 
 [node name="World2" type="Node2D" parent="."]
 position = Vector2( 282.787, 440.305 )
@@ -313,9 +316,6 @@ position = Vector2( -128, -24 )
 [node name="Rock2" parent="World2" instance=ExtResource( 9 )]
 position = Vector2( -96, 136 )
 
-[node name="Spawn" type="Node2D" parent="World2"]
-position = Vector2( 15.9998, 8.00012 )
-
 [node name="PreassurePlate" parent="World2" instance=ExtResource( 8 )]
 position = Vector2( -128, 136 )
 
@@ -324,102 +324,109 @@ position = Vector2( 144, 48 )
 rotation = 1.5708
 type = "blue"
 
-[node name="Sprite" type="Sprite" parent="World2"]
-position = Vector2( -18.2254, -53.3748 )
+[node name="Deko" type="Node" parent="World2"]
+
+[node name="Sprite" type="Sprite" parent="World2/Deko"]
+position = Vector2( 285.775, 346.625 )
 texture = SubResource( 1 )
 
-[node name="Sprite2" type="Sprite" parent="World2"]
-position = Vector2( -157.213, 64.3051 )
+[node name="Sprite2" type="Sprite" parent="World2/Deko"]
+position = Vector2( 146.787, 464.305 )
 rotation = -1.57105
+scale = Vector2( 1, 1 )
 texture = SubResource( 16 )
 
-[node name="Sprite3" type="Sprite" parent="World2"]
-position = Vector2( 54.4187, -44.1526 )
+[node name="Sprite3" type="Sprite" parent="World2/Deko"]
+position = Vector2( 358.419, 355.847 )
 texture = SubResource( 17 )
 
-[node name="Sprite4" type="Sprite" parent="World2"]
-position = Vector2( 48.3295, 167.37 )
+[node name="Sprite4" type="Sprite" parent="World2/Deko"]
+position = Vector2( 352.33, 567.37 )
 scale = Vector2( 0.851563, 0.8125 )
 texture = SubResource( 18 )
 
-[node name="Sprite5" type="Sprite" parent="World2"]
-position = Vector2( -159.93, 3.81003 )
+[node name="Sprite5" type="Sprite" parent="World2/Deko"]
+position = Vector2( 144.07, 403.81 )
 texture = SubResource( 19 )
 
-[node name="Sprite6" type="Sprite" parent="World2"]
-position = Vector2( 157.93, 7.94075 )
+[node name="Sprite6" type="Sprite" parent="World2/Deko"]
+position = Vector2( 461.93, 407.941 )
 texture = SubResource( 20 )
 
-[node name="Sprite7" type="Sprite" parent="World2"]
-position = Vector2( 158.146, 145.12 )
+[node name="Sprite7" type="Sprite" parent="World2/Deko"]
+position = Vector2( 462.146, 545.12 )
 texture = SubResource( 21 )
 
-[node name="Sprite8" type="Sprite" parent="World2"]
-position = Vector2( -160.68, 123.444 )
+[node name="Sprite8" type="Sprite" parent="World2/Deko"]
+position = Vector2( 143.32, 523.444 )
 rotation = 1.55523
+scale = Vector2( 1, 1 )
 texture = SubResource( 22 )
 
-[node name="Sprite9" type="Sprite" parent="World2"]
-position = Vector2( 104.83, -51.1677 )
+[node name="Sprite9" type="Sprite" parent="World2/Deko"]
+position = Vector2( 408.83, 348.832 )
 rotation = 3.02233
 texture = SubResource( 23 )
 
-[node name="Sprite15" type="Sprite" parent="World2"]
-position = Vector2( -103.67, -55.1678 )
+[node name="Sprite15" type="Sprite" parent="World2/Deko"]
+position = Vector2( 200.33, 344.832 )
 scale = Vector2( 0.571428, 0.518518 )
 texture = SubResource( 21 )
 
-[node name="Sprite10" type="Sprite" parent="World2"]
-position = Vector2( -132.507, -53.8317 )
+[node name="Sprite10" type="Sprite" parent="World2/Deko"]
+position = Vector2( 171.493, 346.168 )
 rotation = 3.06648
 scale = Vector2( 1.04176, 0.968182 )
 texture = SubResource( 24 )
 
-[node name="Sprite11" type="Sprite" parent="World2"]
-position = Vector2( 118.364, 119.557 )
+[node name="Sprite11" type="Sprite" parent="World2/Deko"]
+position = Vector2( 422.364, 519.557 )
 rotation = 1.56141
 scale = Vector2( 1.04176, 0.968182 )
 texture = SubResource( 25 )
 
-[node name="Sprite12" type="Sprite" parent="World2"]
-position = Vector2( -60.7068, 132.921 )
+[node name="Sprite12" type="Sprite" parent="World2/Deko"]
+position = Vector2( 243.293, 532.921 )
 rotation = 3.13116
 scale = Vector2( 1.04176, 0.968182 )
 texture = SubResource( 26 )
 
-[node name="Sprite13" type="Sprite" parent="World2"]
-position = Vector2( -60.7068, 132.921 )
+[node name="Sprite13" type="Sprite" parent="World2/Deko"]
+position = Vector2( 243.293, 532.921 )
 rotation = 3.13116
 scale = Vector2( 1.04176, 0.968182 )
 texture = SubResource( 27 )
 
-[node name="Sprite14" type="Sprite" parent="World2"]
-position = Vector2( -75.2143, -0.637329 )
+[node name="Sprite14" type="Sprite" parent="World2/Deko"]
+position = Vector2( 228.786, 399.363 )
 rotation = 3.13116
 scale = Vector2( 1.04176, 0.968182 )
 texture = SubResource( 28 )
 
-[node name="Sprite16" type="Sprite" parent="World2"]
-position = Vector2( 109.662, -16.6832 )
+[node name="Sprite16" type="Sprite" parent="World2/Deko"]
+position = Vector2( 413.662, 383.317 )
 rotation = 3.13116
 scale = Vector2( 1.04176, 0.968182 )
 texture = SubResource( 29 )
 
-[node name="Sprite17" type="Sprite" parent="World2"]
-position = Vector2( 123.349, 61.6584 )
-rotation = 4.71094
+[node name="Sprite17" type="Sprite" parent="World2/Deko"]
+position = Vector2( 427.349, 461.658 )
+rotation = -1.57225
 scale = Vector2( 1.04176, 0.968182 )
 texture = SubResource( 30 )
 
-[node name="Sprite18" type="Sprite" parent="World2"]
-position = Vector2( 19.0504, 64.49 )
-rotation = 4.71094
+[node name="Sprite18" type="Sprite" parent="World2/Deko"]
+position = Vector2( 323.051, 464.49 )
+rotation = -1.57225
 scale = Vector2( 1.04176, 0.968182 )
 texture = SubResource( 31 )
 
-[node name="Sprite19" type="Sprite" parent="World2"]
-position = Vector2( 7.99982, 0.00012207 )
+[node name="Sprite19" type="Sprite" parent="World2/Deko"]
+position = Vector2( 312, 400 )
 texture = SubResource( 32 )
+
+[node name="Spawn" type="Node2D" parent="World2"]
+position = Vector2( -64.0002, -304 )
 
 [node name="Linker" parent="." instance=ExtResource( 7 )]
 Connector1 = NodePath("../World1/Connector1")
