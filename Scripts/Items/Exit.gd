@@ -1,20 +1,21 @@
 extends Area2D
 
-export(String, "red", "blue") var type = "red"
-
 var active:bool = false
 
+export(NodePath) var Animated_Sprite = "./AnimatedSprite"
+
+onready var _sprite:AnimatedSprite = get_node(Animated_Sprite)
+
 func _ready():
-	print_debug(type)
-	$AnimatedSprite.animation = type
+	_sprite.connect("animation_finished", self, "_on_AnimatedSprite_animation_finished")
 
 func state_changed(state:bool):
 	if self.active != state:
 		if state:
-			$AnimatedSprite.play(type)
+			_sprite.play()
 			$AudioStreamPlayer2D.play()
 		else:
-			$AnimatedSprite.play(type, true)
+			_sprite.play("", true)
 			$AudioStreamPlayer2D.play()
 			self.active = false
 

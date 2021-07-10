@@ -28,16 +28,9 @@ func get_direction_vector():
 	return res.clamped(1)
 
 export(float) var max_speed = 5000
-export(AudioStream) var character_music
-
-onready var music_player:AudioStreamPlayer = self.get_node("AudioStreamPlayer")
-onready var animation_player:AnimationPlayer = self.get_node("AnimationPlayer")
 
 var direction = ViewDirection.Right
 var is_moving = false
-
-func _ready():
-	self.music_player.stream = self.character_music
 
 func _process(_delta):
 	var old_direction = self.direction
@@ -67,15 +60,3 @@ func _physics_process(delta):
 		self.move_and_slide(self.get_direction_vector() * self.max_speed * delta, Vector2(0,0), false, 4, 0.785398, false)
 		#self.move_and_slide(self.get_direction_vector() * self.max_speed * delta)
 
-func start_charater_music(position:float):
-	self.music_player.play(position)
-	self.animation_player.play("Fade_In")
-	pass
-
-func stop_charater_music():
-	self.animation_player.play("Fade_Out")
-	return self.music_player.get_playback_position()
-
-
-func _on_AudioStreamPlayer_finished():
-	music_player.play()
