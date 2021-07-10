@@ -1,13 +1,17 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Prefabs/Characters/Sun_Sprites.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://Assets/Audio/WORLD 1 in 150BPM.wav" type="AudioStream" id=2]
+[ext_resource path="res://Scripts/Character.gd" type="Script" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 15.0
 
-[node name="Sun" type="KinematicBody2D"]
+[node name="Sun" type="KinematicBody2D" groups=[
+"Characters",
+]]
 collision_layer = 41
+script = ExtResource( 3 )
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

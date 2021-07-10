@@ -2,20 +2,16 @@ extends Area2D
 
 var active:bool = false
 
-export(NodePath) var Animated_Sprite = "./AnimatedSprite"
-
-onready var _sprite:AnimatedSprite = get_node(Animated_Sprite)
-
 func _ready():
-	_sprite.connect("animation_finished", self, "_on_AnimatedSprite_animation_finished")
+	$Sprite.connect("animation_finished", self, "_on_AnimatedSprite_animation_finished")
 
 func state_changed(state:bool):
 	if self.active != state:
 		if state:
-			_sprite.play()
+			$Sprite.play()
 			$AudioStreamPlayer2D.play()
 		else:
-			_sprite.play("", true)
+			$Sprite.play("", true)
 			$AudioStreamPlayer2D.play()
 			self.active = false
 
