@@ -1,14 +1,17 @@
 extends Node
 
-var characters = {};
+var selected_character:Character = null
 
-func _ready():
-	get_tree().connect("node_added", self, "_on_node_added");
+func _input(event):
+	if event.is_action_pressed("switch_character"):
+		var characters = get_tree().get_nodes_in_group("Character")
+		print_debug("Characters: ",characters)
+		if !characters.empty():
+			select(characters[(characters.find(self.selected_character) + 1) % characters.size()])
 
-func _on_node_added(node:Node):
-	if node is Character:
-		characters[node.type] = node;
-
-func _on_node_removed(node:Node):
-	characters.values().has()
-	pass
+func select(character:Character):
+	if self.selected_character != null:
+		self.selected_character.deactivate()
+	character.activate()
+	self.selected_character = character
+	

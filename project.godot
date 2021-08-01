@@ -9,7 +9,7 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Area2D",
+"base": "PhysicsBody2D",
 "class": "Character",
 "language": "GDScript",
 "path": "res://Scripts/Character.gd"
@@ -45,6 +45,10 @@ One day they see the sky in their worlds shatter and decide to delve in the ruin
 run/main_scene="res://Main.tscn"
 config/icon="res://ICON.png"
 config/windows_native_icon="res://ICON.ico"
+
+[autoload]
+
+CharacterController="*res://Scripts/CharacterController.gd"
 
 [display]
 
