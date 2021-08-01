@@ -13,10 +13,6 @@ script = ExtResource( 3 )
 shape = SubResource( 1 )
 
 [node name="Tween" type="Tween" parent="."]
-playback_speed = 5.0
-playback/speed = 5.0
 
 [node name="Ray" type="RayCast2D" parent="."]
 cast_to = Vector2( -32, 0 )
-
-[connection signal="tween_all_completed" from="Tween" to="." method="_on_tween_completed"]

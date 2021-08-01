@@ -8,29 +8,32 @@ onready var sprite_node = get_node(sprite)
 
 var next_movment:Vector2 = Vector2.ZERO
 
-func _unhandled_input(event):
-	if event.is_action_pressed("move_left"):
+func _ready():
+	set_process_input(false)
+
+func _input(event):
+	if event.is_action_pressed("move_left", true):
 		next_movment = Vector2.LEFT
-	if event.is_action_pressed("move_right"):
+	elif event.is_action_pressed("move_right", true):
 		next_movment = Vector2.RIGHT
-	if event.is_action_pressed("move_up"):
+	elif event.is_action_pressed("move_up", true):
 		next_movment = Vector2.UP
-	if event.is_action_pressed("move_down"):
+	elif event.is_action_pressed("move_down", true):
 		next_movment = Vector2.DOWN
 	
-	if !$Tween.is_active():
-		next_movment = try_move(next_movment)
+	if (event.is_action_released("move_left") or event.is_action_released("move_right") 
+	or event.is_action_released("move_up") or event.is_action_released("move_down")):
+		next_movment = Vector2.ZERO
+
+func _process(delta):
+	try_move(next_movment)
 
 func try_move(move:Vector2):
 	if sprite_node == null:
 		return move
 	
-	$Ray.set_cast_to(move * 32)
-	$Ray.force_raycast_update()
-	if $Ray.is_colliding():
+	if $Tween.is_active():
 		return move
-	$Tween.interpolate_property(self, "position", position, position + move * 32, 1, Tween.TRANS_LINEAR)
-	$Tween.start()
 	
 	match move:
 		Vector2.LEFT:
@@ -43,12 +46,14 @@ func try_move(move:Vector2):
 			sprite_node.animation = "down"
 		Vector2.ZERO:
 			sprite_node.animation = "default"
-			
+	
+	$Ray.set_cast_to(move * 32)
+	$Ray.force_raycast_update()
+	if $Ray.is_colliding():
+		return move
+	
+	$Tween.interpolate_property(self, "position", position, position + move * 32, 0.2, Tween.TRANS_LINEAR, Tween.EASE_OUT_IN)
+	$Tween.start()
+	
 	return Vector2.ZERO
 
-func _on_tween_completed():
-	next_movment = try_move(next_movment)
-
-func _process(delta):
-	if !$Tween.is_active():
-		next_movment = try_move(next_movment)
