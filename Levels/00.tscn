@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://Scripts/Level/Level.gd" type="Script" id=1]
 [ext_resource path="res://Assets/TileSet.tres" type="TileSet" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Prefabs/Items/Rock_Green.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Prefabs/SunExit.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Prefabs/WallsBlue.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Levels/01.tscn" type="PackedScene" id=12]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -275,8 +276,9 @@ tile_data = PoolIntArray( 0, 18, 0, 1, 2, 65536, 2, 2, 0, 3, 18, 0, 4, 18, 0, 5,
 position = Vector2( -0.000183105, 0.00012207 )
 
 [node name="SunExit" parent="Sun World" instance=ExtResource( 10 )]
-position = Vector2( 144, 0.00012207 )
+position = Vector2( 144, -15.9999 )
 rotation = 1.5708
+next_level = ExtResource( 12 )
 
 [node name="Deko" type="Node2D" parent="Sun World"]
 
@@ -389,8 +391,9 @@ tile_data = PoolIntArray( 0, 2, 65539, 1, 2, 65539, 2, 2, 0, 3, 8, 65537, 4, 2, 
 position = Vector2( 0.5, 55.7028 )
 
 [node name="MoonExit" parent="Moon World" instance=ExtResource( 7 )]
-position = Vector2( 144, 56.0001 )
+position = Vector2( 144, 40.0002 )
 rotation = 1.5708
+next_level = ExtResource( 12 )
 
 [node name="Deko" type="Node2D" parent="Moon World"]
 

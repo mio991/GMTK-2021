@@ -3,6 +3,7 @@ extends PhysicsBody2D
 class_name Character
 
 export(NodePath) var sprite = "./Sprite"
+export(AudioStream) var music
 
 onready var sprite_node = get_node(sprite)
 
@@ -11,8 +12,8 @@ var next_movment:Vector2 = Vector2.ZERO
 func activate():
 	print_debug(self," Activate")
 	set_process_input(true)
-	print_debug($AnimationPlayer)
 	$AnimationPlayer.play("activated")
+	$"/root/BackgroundMusic".crosfade_to(music)
 
 func deactivate():
 	print_debug(self," Deactivate")
