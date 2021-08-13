@@ -9,7 +9,7 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "PhysicsBody2D",
+"base": "Node2D",
 "class": "Character",
 "language": "GDScript",
 "path": "res://Scripts/Character.gd"
@@ -19,21 +19,27 @@ _global_script_classes=[ {
 "language": "NativeScript",
 "path": "res://git_api.gdns"
 }, {
+"base": "StaticBody2D",
+"class": "Interactable",
+"language": "GDScript",
+"path": "res://Scripts/Interactable.gd"
+}, {
 "base": "Node",
 "class": "Level",
 "language": "GDScript",
-"path": "res://Scripts/Level/Level.gd"
+"path": "res://Scripts/Level.gd"
 }, {
 "base": "Node2D",
-"class": "LevelContainer",
+"class": "LinkerMovement",
 "language": "GDScript",
-"path": "res://Scripts/Level/LevelContainer.gd"
+"path": "res://Scripts/LinkerMovement.gd"
 } ]
 _global_script_class_icons={
-"Character": "",
+"Character": "res://Assets/Icons/directions_run.svg",
 "GitAPI": "",
+"Interactable": "res://Assets/Icons/pan_tool.svg",
 "Level": "",
-"LevelContainer": ""
+"LinkerMovement": ""
 }
 
 [application]
@@ -42,13 +48,13 @@ config/name="Entangle"
 config/description="Two friends only know each other through the strange device in ancient ruins. It allows them to entangle objects in their respective worlds and write things on the walls to communicate.
 
 One day they see the sky in their worlds shatter and decide to delve in the ruins in hope of finding some way to restore it."
-run/main_scene="res://Main.tscn"
+run/main_scene="res://Levels/Main.tscn"
 config/icon="res://ICON.png"
 config/windows_native_icon="res://ICON.ico"
 
 [autoload]
 
-CharacterController="*res://Scripts/CharacterController.gd"
+CharacterController="*res://Scripts/Globals/CharacterController.gd"
 BackgroundMusic="*res://Prefabs/BackgroundMusic.tscn"
 
 [display]
@@ -154,9 +160,8 @@ reload={
 2d_physics/layer_2="Linkable"
 2d_physics/layer_3="Interactable"
 2d_physics/layer_4="Player"
-2d_physics/layer_5="Caryable"
+2d_physics/layer_5="Grabable"
 2d_physics/layer_6="Heavy"
-2d_physics/layer_7="Systems"
 
 [physics]
 

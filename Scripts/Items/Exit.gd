@@ -2,7 +2,7 @@ extends Area2D
 
 var active:bool = false
 
-export(PackedScene) var next_level
+export(PackedScene) var next_level = load("res://Levels/Main.tscn")
 
 func _ready():
 	$Sprite.connect("animation_finished", self, "_on_AnimatedSprite_animation_finished")
@@ -24,7 +24,7 @@ func _on_AnimatedSprite_animation_finished():
 		get_tree().change_scene_to(next_level)
 
 
-func _on_Exit_body_entered(body):
+func _on_Exit_entered(body):
 	if self.active:
 		get_tree().change_scene_to(next_level)
 

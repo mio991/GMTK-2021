@@ -1,12 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Scripts/Menu/Start.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Audio/Main Menu.wav" type="AudioStream" id=2]
-[ext_resource path="res://Levels/00.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Levels/02.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Levels/01.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Levels/03.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=7]
+[ext_resource path="res://Assets/Audio/Main Menu.wav" type="AudioStream" id=1]
+[ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Menu/Start.gd" type="Script" id=3]
+[ext_resource path="res://Levels/01.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Levels/00.tscn" type="PackedScene" id=5]
 
 [node name="VBoxContainer" type="VBoxContainer"]
 anchor_right = 1.0
@@ -15,11 +13,11 @@ margin_left = 112.0
 margin_right = -104.0
 custom_constants/separation = 8
 alignment = 1
-script = ExtResource( 7 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-music = ExtResource( 2 )
+music = ExtResource( 1 )
 
 [node name="Label" type="Label" parent="."]
 margin_top = 150.0
@@ -35,8 +33,8 @@ margin_bottom = 192.0
 focus_neighbour_bottom = NodePath("../Level1")
 focus_next = NodePath("../Level1")
 text = "Level 1"
-script = ExtResource( 1 )
-level = ExtResource( 3 )
+script = ExtResource( 3 )
+level = ExtResource( 5 )
 
 [node name="Level1" type="Button" parent="."]
 margin_top = 200.0
@@ -47,8 +45,8 @@ focus_neighbour_bottom = NodePath("../Level2")
 focus_next = NodePath("../Level2")
 focus_previous = NodePath("../Level0")
 text = "Level 2"
-script = ExtResource( 1 )
-level = ExtResource( 5 )
+script = ExtResource( 3 )
+level = ExtResource( 4 )
 
 [node name="Level2" type="Button" parent="."]
 margin_top = 228.0
@@ -59,8 +57,7 @@ focus_neighbour_bottom = NodePath("../Level3")
 focus_next = NodePath("../Level3")
 focus_previous = NodePath("../Level1")
 text = "Level 3"
-script = ExtResource( 1 )
-level = ExtResource( 4 )
+script = ExtResource( 3 )
 
 [node name="Level3" type="Button" parent="."]
 margin_top = 256.0
@@ -69,8 +66,7 @@ margin_bottom = 276.0
 focus_neighbour_top = NodePath("../Level2")
 focus_previous = NodePath("../Level2")
 text = "Level 4"
-script = ExtResource( 1 )
-level = ExtResource( 6 )
+script = ExtResource( 3 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 margin_top = 284.0

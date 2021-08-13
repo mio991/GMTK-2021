@@ -14,4 +14,7 @@ func select(character:Character):
 		self.selected_character.deactivate()
 	character.activate()
 	self.selected_character = character
-	
+
+func remove(character:Character):
+	if self.selected_character == character:
+		self.selected_character = null

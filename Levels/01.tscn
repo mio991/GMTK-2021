@@ -1,19 +1,19 @@
 [gd_scene load_steps=47 format=2]
 
-[ext_resource path="res://Scripts/Level/Level.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
 [ext_resource path="res://Assets/TileSet.tres" type="TileSet" id=2]
 [ext_resource path="res://Prefabs/Characters/Moon.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Prefabs/WallsRed.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Prefabs/Links/LinkerStation.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Prefabs/Items/Rock_Yellow.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Prefabs/Level/WallsRed.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Prefabs/Level/LinkerMovement.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Prefabs/Level/RockYellow.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Prefabs/Characters/Sun.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Prefabs/SunExit.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Prefabs/Items/Rock_Green.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Prefabs/WallsBlue.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Prefabs/Items/Preassure_Plate_Blue.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Prefabs/Level/ExitSun.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Prefabs/Level/RockGreen.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Prefabs/Level/WallsBlue.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Prefabs/Level/PreassurePlateMoon.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Assets/Sheets/entities.png" type="Texture" id=12]
 [ext_resource path="res://Assets/Sheets/rooms.png" type="Texture" id=13]
-[ext_resource path="res://Prefabs/MoonExit.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Prefabs/Level/ExitMoon.tscn" type="PackedScene" id=14]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -84,6 +84,149 @@ region = Rect2( 910, 80, 80, 60 )
 flags = 4
 atlas = ExtResource( 13 )
 region = Rect2( 780, 40, 50, 50 )
+
+[sub_resource type="Shader" id=15]
+code = "shader_type canvas_item;
+
+uniform vec4 color : hint_color = vec4(1.0);
+uniform float width : hint_range(0, 10) = 1.0;
+uniform int pattern : hint_range(0, 2) = 0; // diamond, circle, square
+uniform bool inside = false;
+uniform bool add_margins = true; // only useful when inside is false
+
+void vertex() {
+	if (add_margins) {
+		VERTEX += (UV * 2.0 - 1.0) * width;
+	}
+}
+
+bool hasContraryNeighbour(vec2 uv, vec2 texture_pixel_size, sampler2D texture) {
+	for (float i = -ceil(width); i <= ceil(width); i++) {
+		float x = abs(i) > width ? width * sign(i) : i;
+		float offset;
+		
+		if (pattern == 0) {
+			offset = width - abs(x);
+		} else if (pattern == 1) {
+			offset = floor(sqrt(pow(width + 0.5, 2) - x * x));
+		} else if (pattern == 2) {
+			offset = width;
+		}
+		
+		for (float j = -ceil(offset); j <= ceil(offset); j++) {
+			float y = abs(j) > offset ? offset * sign(j) : j;
+			vec2 xy = uv + texture_pixel_size * vec2(x, y);
+			
+			if ((xy != clamp(xy, vec2(0.0), vec2(1.0)) || texture(texture, xy).a == 0.0) == inside) {
+				return true;
+			}
+		}
+	}
+	
+	return false;
+}
+
+void fragment() {
+	vec2 uv = UV;
+	
+	if (add_margins) {
+		vec2 texture_pixel_size = vec2(1.0) / (vec2(1.0) / TEXTURE_PIXEL_SIZE + vec2(width * 2.0));
+		
+		uv = (uv - texture_pixel_size * width) * TEXTURE_PIXEL_SIZE / texture_pixel_size;
+		
+		if (uv != clamp(uv, vec2(0.0), vec2(1.0))) {
+			COLOR.a = 0.0;
+		} else {
+			COLOR = texture(TEXTURE, uv);
+		}
+	} else {
+		COLOR = texture(TEXTURE, uv);
+	}
+	
+	if ((COLOR.a > 0.0) == inside && hasContraryNeighbour(uv, TEXTURE_PIXEL_SIZE, TEXTURE)) {
+		COLOR.rgb = inside ? mix(COLOR.rgb, color.rgb, color.a) : color.rgb;
+		COLOR.a += (1.0 - COLOR.a) * color.a;
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id=16]
+resource_local_to_scene = true
+shader = SubResource( 15 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/width = 0.0
+shader_param/pattern = 0
+shader_param/inside = true
+shader_param/add_margins = false
+
+[sub_resource type="AtlasTexture" id=17]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 617, 37, 52, 27 )
+
+[sub_resource type="AtlasTexture" id=18]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 1123, 32, 64, 32 )
+
+[sub_resource type="AtlasTexture" id=19]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 1223, 39, 20, 25 )
+
+[sub_resource type="AtlasTexture" id=20]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 1224, 109, 24, 9 )
+
+[sub_resource type="AtlasTexture" id=21]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 1189, 5, 28, 54 )
+
+[sub_resource type="AtlasTexture" id=22]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 1220, 100, 60, 30 )
+
+[sub_resource type="AtlasTexture" id=23]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 1223, 39, 20, 25 )
+
+[sub_resource type="AtlasTexture" id=24]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 1544, 166, 23, 23 )
+
+[sub_resource type="AtlasTexture" id=25]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 1737, 165, 23, 23 )
+
+[sub_resource type="AtlasTexture" id=26]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 1485, 38, 23, 24 )
+
+[sub_resource type="AtlasTexture" id=27]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 1705, 70, 23, 23 )
+
+[sub_resource type="AtlasTexture" id=28]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 1672, 72, 23, 14 )
+
+[sub_resource type="AtlasTexture" id=29]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 1549, 138, 13, 13 )
+
+[sub_resource type="AtlasTexture" id=30]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 1513, 102, 23, 23 )
 
 [sub_resource type="Shader" id=31]
 code = "shader_type canvas_item;
@@ -158,149 +301,6 @@ shader_param/pattern = 0
 shader_param/inside = true
 shader_param/add_margins = false
 
-[sub_resource type="AtlasTexture" id=15]
-flags = 4
-atlas = ExtResource( 13 )
-region = Rect2( 617, 37, 52, 27 )
-
-[sub_resource type="AtlasTexture" id=16]
-flags = 4
-atlas = ExtResource( 13 )
-region = Rect2( 1123, 32, 64, 32 )
-
-[sub_resource type="AtlasTexture" id=17]
-flags = 4
-atlas = ExtResource( 13 )
-region = Rect2( 1223, 39, 20, 25 )
-
-[sub_resource type="AtlasTexture" id=18]
-flags = 4
-atlas = ExtResource( 13 )
-region = Rect2( 1224, 109, 24, 9 )
-
-[sub_resource type="AtlasTexture" id=19]
-flags = 4
-atlas = ExtResource( 13 )
-region = Rect2( 1189, 5, 28, 54 )
-
-[sub_resource type="AtlasTexture" id=20]
-flags = 4
-atlas = ExtResource( 13 )
-region = Rect2( 1220, 100, 60, 30 )
-
-[sub_resource type="AtlasTexture" id=21]
-flags = 4
-atlas = ExtResource( 13 )
-region = Rect2( 1223, 39, 20, 25 )
-
-[sub_resource type="AtlasTexture" id=22]
-flags = 4
-atlas = ExtResource( 13 )
-region = Rect2( 1544, 166, 23, 23 )
-
-[sub_resource type="AtlasTexture" id=23]
-flags = 4
-atlas = ExtResource( 13 )
-region = Rect2( 1737, 165, 23, 23 )
-
-[sub_resource type="AtlasTexture" id=24]
-flags = 4
-atlas = ExtResource( 13 )
-region = Rect2( 1485, 38, 23, 24 )
-
-[sub_resource type="AtlasTexture" id=25]
-flags = 4
-atlas = ExtResource( 13 )
-region = Rect2( 1705, 70, 23, 23 )
-
-[sub_resource type="AtlasTexture" id=26]
-flags = 4
-atlas = ExtResource( 13 )
-region = Rect2( 1672, 72, 23, 14 )
-
-[sub_resource type="AtlasTexture" id=27]
-flags = 4
-atlas = ExtResource( 13 )
-region = Rect2( 1549, 138, 13, 13 )
-
-[sub_resource type="AtlasTexture" id=28]
-flags = 4
-atlas = ExtResource( 13 )
-region = Rect2( 1513, 102, 23, 23 )
-
-[sub_resource type="Shader" id=29]
-code = "shader_type canvas_item;
-
-uniform vec4 color : hint_color = vec4(1.0);
-uniform float width : hint_range(0, 10) = 1.0;
-uniform int pattern : hint_range(0, 2) = 0; // diamond, circle, square
-uniform bool inside = false;
-uniform bool add_margins = true; // only useful when inside is false
-
-void vertex() {
-	if (add_margins) {
-		VERTEX += (UV * 2.0 - 1.0) * width;
-	}
-}
-
-bool hasContraryNeighbour(vec2 uv, vec2 texture_pixel_size, sampler2D texture) {
-	for (float i = -ceil(width); i <= ceil(width); i++) {
-		float x = abs(i) > width ? width * sign(i) : i;
-		float offset;
-		
-		if (pattern == 0) {
-			offset = width - abs(x);
-		} else if (pattern == 1) {
-			offset = floor(sqrt(pow(width + 0.5, 2) - x * x));
-		} else if (pattern == 2) {
-			offset = width;
-		}
-		
-		for (float j = -ceil(offset); j <= ceil(offset); j++) {
-			float y = abs(j) > offset ? offset * sign(j) : j;
-			vec2 xy = uv + texture_pixel_size * vec2(x, y);
-			
-			if ((xy != clamp(xy, vec2(0.0), vec2(1.0)) || texture(texture, xy).a == 0.0) == inside) {
-				return true;
-			}
-		}
-	}
-	
-	return false;
-}
-
-void fragment() {
-	vec2 uv = UV;
-	
-	if (add_margins) {
-		vec2 texture_pixel_size = vec2(1.0) / (vec2(1.0) / TEXTURE_PIXEL_SIZE + vec2(width * 2.0));
-		
-		uv = (uv - texture_pixel_size * width) * TEXTURE_PIXEL_SIZE / texture_pixel_size;
-		
-		if (uv != clamp(uv, vec2(0.0), vec2(1.0))) {
-			COLOR.a = 0.0;
-		} else {
-			COLOR = texture(TEXTURE, uv);
-		}
-	} else {
-		COLOR = texture(TEXTURE, uv);
-	}
-	
-	if ((COLOR.a > 0.0) == inside && hasContraryNeighbour(uv, TEXTURE_PIXEL_SIZE, TEXTURE)) {
-		COLOR.rgb = inside ? mix(COLOR.rgb, color.rgb, color.a) : color.rgb;
-		COLOR.a += (1.0 - COLOR.a) * color.a;
-	}
-}"
-
-[sub_resource type="ShaderMaterial" id=30]
-resource_local_to_scene = true
-shader = SubResource( 29 )
-shader_param/color = Color( 1, 1, 1, 1 )
-shader_param/width = 0.0
-shader_param/pattern = 0
-shader_param/inside = true
-shader_param/add_margins = false
-
 [node name="Level01" type="Node2D"]
 script = ExtResource( 1 )
 initial_character = NodePath("SunWorld/Sun")
@@ -319,15 +319,12 @@ tile_data = PoolIntArray( 0, 2, 196608, 1, 2, 1, 2, 20, 0, 3, 20, 1, 4, 2, 1, 5,
 [node name="Walls" parent="SunWorld" instance=ExtResource( 4 )]
 position = Vector2( 320, 152 )
 
-[node name="Connector1" parent="SunWorld" instance=ExtResource( 5 )]
-position = Vector2( 192, 72 )
-
 [node name="SunExit" parent="SunWorld" instance=ExtResource( 8 )]
 position = Vector2( 256, 56 )
 rotation = 3.57628e-06
 
 [node name="Rock" parent="SunWorld" instance=ExtResource( 6 )]
-position = Vector2( 224, 72 )
+position = Vector2( 320, 232 )
 
 [node name="Deko" type="Node2D" parent="SunWorld"]
 
@@ -418,9 +415,14 @@ rotation = -1.57225
 scale = Vector2( 1.04176, 0.968182 )
 texture = SubResource( 14 )
 
+[node name="LinkerMovement" parent="SunWorld" instance=ExtResource( 5 )]
+position = Vector2( 208, 72 )
+other_end = NodePath("../../MoonWorld/LinkerMovement")
+
 [node name="Sun" parent="SunWorld" instance=ExtResource( 7 )]
-material = SubResource( 32 )
+material = SubResource( 16 )
 position = Vector2( 192, 136 )
+sprite = NodePath("./Sprite")
 
 [node name="MoonWorld" type="Node2D" parent="."]
 
@@ -436,14 +438,11 @@ tile_data = PoolIntArray( 0, 2, 196608, 1, 2, 0, 2, 19, 0, 3, 19, 1, 4, 21, 0, 5
 [node name="Walls" parent="MoonWorld" instance=ExtResource( 10 )]
 position = Vector2( 320, 448 )
 
-[node name="Connector2" parent="MoonWorld" instance=ExtResource( 5 )]
-position = Vector2( 192, 368 )
-
 [node name="MoonExit" parent="MoonWorld" instance=ExtResource( 14 )]
 position = Vector2( 256, 352 )
 
 [node name="Rock2" parent="MoonWorld" instance=ExtResource( 9 )]
-position = Vector2( 224, 368 )
+position = Vector2( 192, 528 )
 
 [node name="PreassurePlate" parent="MoonWorld" instance=ExtResource( 11 )]
 position = Vector2( 448, 528 )
@@ -455,84 +454,87 @@ rotation = 1.5708
 [node name="Sprite2" type="Sprite" parent="MoonWorld/Deko"]
 position = Vector2( -15.9995, 160 )
 rotation = 3.12471
-texture = SubResource( 15 )
+texture = SubResource( 17 )
 
 [node name="Sprite4" type="Sprite" parent="MoonWorld/Deko"]
 position = Vector2( 74.9017, 157.58 )
 scale = Vector2( 0.851563, 0.8125 )
-texture = SubResource( 16 )
+texture = SubResource( 18 )
 
 [node name="Sprite5" type="Sprite" parent="MoonWorld/Deko"]
 position = Vector2( -108.243, -0.763458 )
-texture = SubResource( 17 )
+texture = SubResource( 19 )
 
 [node name="Sprite6" type="Sprite" parent="MoonWorld/Deko"]
 position = Vector2( 112.148, 70.6435 )
-texture = SubResource( 18 )
+texture = SubResource( 20 )
 
 [node name="Sprite7" type="Sprite" parent="MoonWorld/Deko"]
 position = Vector2( 78.4594, -48.5667 )
-texture = SubResource( 19 )
+texture = SubResource( 21 )
 
 [node name="Sprite8" type="Sprite" parent="MoonWorld/Deko"]
 position = Vector2( -111.641, 119.4 )
 rotation = 1.55523
-scale = Vector2( 1, 1 )
-texture = SubResource( 20 )
+texture = SubResource( 22 )
 
 [node name="Sprite9" type="Sprite" parent="MoonWorld/Deko"]
 position = Vector2( -108.348, -66.8647 )
 rotation = 3.02233
-texture = SubResource( 21 )
+texture = SubResource( 23 )
 
 [node name="Sprite15" type="Sprite" parent="MoonWorld/Deko"]
 position = Vector2( -49.5571, 157.544 )
 scale = Vector2( 0.571428, 0.518518 )
-texture = SubResource( 19 )
+texture = SubResource( 21 )
 
 [node name="Sprite11" type="Sprite" parent="MoonWorld/Deko"]
 position = Vector2( 16.7356, -99.6789 )
 rotation = 1.56141
 scale = Vector2( 1.04176, 0.968182 )
-texture = SubResource( 22 )
+texture = SubResource( 24 )
 
 [node name="Sprite12" type="Sprite" parent="MoonWorld/Deko"]
 position = Vector2( -15.6241, 31.1017 )
 rotation = 3.13116
 scale = Vector2( 1.04176, 0.968182 )
-texture = SubResource( 23 )
+texture = SubResource( 25 )
 
 [node name="Sprite13" type="Sprite" parent="MoonWorld/Deko"]
 position = Vector2( -71.7488, -120.515 )
 rotation = 3.13116
 scale = Vector2( 1.04176, 0.968182 )
-texture = SubResource( 24 )
+texture = SubResource( 26 )
 
 [node name="Sprite14" type="Sprite" parent="MoonWorld/Deko"]
 position = Vector2( -49.8241, -64.8371 )
 rotation = 3.13116
 scale = Vector2( 1.04176, 0.968182 )
-texture = SubResource( 25 )
+texture = SubResource( 27 )
 
 [node name="Sprite16" type="Sprite" parent="MoonWorld/Deko"]
 position = Vector2( -16.5804, 90.6843 )
 rotation = 3.13116
 scale = Vector2( 1.04176, 0.968182 )
-texture = SubResource( 26 )
+texture = SubResource( 28 )
 
 [node name="Sprite17" type="Sprite" parent="MoonWorld/Deko"]
 position = Vector2( 47.8134, -97.1593 )
 rotation = -1.57225
 scale = Vector2( 1.04176, 0.968182 )
-texture = SubResource( 27 )
+texture = SubResource( 29 )
 
 [node name="Sprite18" type="Sprite" parent="MoonWorld/Deko"]
 position = Vector2( -43.6841, 55.5795 )
 rotation = -1.57225
 scale = Vector2( 1.04176, 0.968182 )
-texture = SubResource( 28 )
+texture = SubResource( 30 )
+
+[node name="LinkerMovement" parent="MoonWorld" instance=ExtResource( 5 )]
+position = Vector2( 208, 368 )
+other_end = NodePath("../../SunWorld/LinkerMovement")
 
 [node name="Moon" parent="MoonWorld" instance=ExtResource( 3 )]
-material = SubResource( 30 )
+material = SubResource( 32 )
 position = Vector2( 192, 432 )
 sprite = NodePath("Sprite")

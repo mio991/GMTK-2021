@@ -1,16 +1,16 @@
 [gd_scene load_steps=48 format=2]
 
-[ext_resource path="res://Scripts/Level/Level.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
 [ext_resource path="res://Assets/TileSet.tres" type="TileSet" id=2]
 [ext_resource path="res://Prefabs/Characters/Moon.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Prefabs/WallsRed.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Prefabs/Level/WallsRed.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Prefabs/Characters/Sun.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Sheets/rooms.png" type="Texture" id=6]
-[ext_resource path="res://Prefabs/MoonExit.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Prefabs/Items/Preassure_Plate_Blue.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Prefabs/Items/Rock_Green.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Prefabs/SunExit.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Prefabs/WallsBlue.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Prefabs/Level/ExitMoon.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Prefabs/Level/PreassurePlateMoon.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Prefabs/Level/RockGreen.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Prefabs/Level/ExitSun.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Prefabs/Level/WallsBlue.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Levels/01.tscn" type="PackedScene" id=12]
 
 [sub_resource type="AtlasTexture" id=1]
@@ -374,6 +374,7 @@ texture = SubResource( 15 )
 [node name="Sun" parent="Sun World" instance=ExtResource( 5 )]
 material = SubResource( 17 )
 position = Vector2( -64.0002, -47.9999 )
+sprite = NodePath("./Sprite")
 
 [node name="Moon World" type="Node2D" parent="."]
 position = Vector2( 282.787, 440.305 )
@@ -500,9 +501,10 @@ position = Vector2( -128, 136 )
 [node name="Moon" parent="Moon World" instance=ExtResource( 3 )]
 material = SubResource( 35 )
 position = Vector2( -0.000179768, 8.00012 )
+sprite = NodePath("./Sprite")
 
 [node name="Rock2" parent="Moon World" instance=ExtResource( 9 )]
 position = Vector2( -96, 136 )
 
-[connection signal="change_state" from="Moon World/PreassurePlate" to="Sun World/SunExit" method="state_changed"]
 [connection signal="change_state" from="Moon World/PreassurePlate" to="Moon World/MoonExit" method="state_changed"]
+[connection signal="change_state" from="Moon World/PreassurePlate" to="Sun World/SunExit" method="state_changed"]

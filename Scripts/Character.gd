@@ -1,6 +1,6 @@
-extends PhysicsBody2D
+extends Node2D
 
-class_name Character
+class_name Character, "res://Assets/Icons/directions_run.svg"
 
 export(NodePath) var sprite = "./Sprite"
 export(AudioStream) var music
@@ -22,6 +22,9 @@ func deactivate():
 func _ready():
 	deactivate()
 
+func _exit_tree():
+	$"/root/CharacterController".remove(self)
+
 func _input(event):
 	if event.is_action_pressed("move_left", true):
 		next_movment = Vector2.LEFT
@@ -35,6 +38,9 @@ func _input(event):
 	if (event.is_action_released("move_left") or event.is_action_released("move_right") 
 	or event.is_action_released("move_up") or event.is_action_released("move_down")):
 		next_movment = Vector2.ZERO
+	
+	if event.is_action_pressed("interact") and self.interactable != null:
+		self.interactable.emit_signal("is_used_by", self)
 
 func _process(delta):
 	try_move(next_movment)
@@ -86,3 +92,14 @@ func _set_outline_width(width:float):
 
 func _get_outline_width():
 	return (self.material as ShaderMaterial).get_shader_param("width")
+
+var interactable:Interactable = null
+
+func _on_body_entered(body):
+	if body is Interactable:
+		self.interactable = body
+
+
+func _on_body_exited(body):
+	if self.interactable == body:
+		self.interactable = null
